@@ -40,7 +40,7 @@ Server running on **localhost:5000**
 
 **Demo** also will be running live at [Still Loading]()
 
-## Data life cycle
+## Article notes
 
 **Coming coon...**
 
