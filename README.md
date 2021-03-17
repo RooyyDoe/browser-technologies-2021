@@ -95,8 +95,6 @@ These are the wireflows for the survey, start and end screen. I have annotations
   
 </details>
 
-personal game questions: 
-
 <details>
   <summary>This is the interface for the personal game questions</summary>
   
@@ -113,8 +111,6 @@ personal game questions:
   
 </details>
 
-Open game questions:
-
 <details>
   <summary>This is the interface for the open game questions</summary>
   
@@ -128,8 +124,6 @@ Open game questions:
   - What or who got you into video games in the first place? (Textarea)
   
 </details>
-
-Judge A game:
 
 <details>
   <summary>This is the interface for the Judge A game</summary>
