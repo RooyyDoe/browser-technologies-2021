@@ -124,7 +124,7 @@ These are the wireflows for the survey, start and end screen. I have annotations
   
   In de second survey screen the users get a couple more personal questions, but these questions will be mainly linked to gaming
   
-    **Form questions:**
+  **Form questions:**
   - What is your favorite platform? (Input type Range)
   - How much time do you spend on gaming in a day (Input field)
   - Do you prefer multiplayer games or to go solo? (Checkboxes)
