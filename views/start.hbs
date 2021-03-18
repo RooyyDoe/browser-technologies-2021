@@ -1,1 +1,23 @@
-<p>Hello World</p>
+{{> header}}
+
+<main id="start-page">
+
+    <section id="banner-image" title="Gaming survey banner"></section>
+
+    <form action="/personal" method="POST">
+        <fieldset>
+            <legend>
+                <strong>Game related</strong> Survey
+            </legend>
+            <p>This awesome survey will go about gaming and hopefully you guys can fill me in with information by
+                answering these questions!</p>
+
+            <label>Enter your unique code to resume the survey</label>
+            <input type="text" name="unique-code-start" id="unique-code-start" placeholder="Unique code example"
+                autocomplete="off">
+
+            <input type="submit" value="Start survey">
+        </fieldset>
+    </form>
+
+</main>

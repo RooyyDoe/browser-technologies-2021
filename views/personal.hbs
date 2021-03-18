@@ -1,0 +1,46 @@
+{{> header}}
+
+<main>
+    <section>
+        <label for="progress">You just started the survey</label>
+        <progress id="progress" value="0" max="100"></progress>
+    </section>
+
+    <form action="/game_personal" method="POST" id="personal">
+        <fieldset>
+            <legend>Let's get personal</legend>
+
+            <label for="name">Your name:</label>
+            <input type="text" name="name" id="name" value="" autocomplete="off" placeholder="James" required>
+
+            <label for="surname">Your surname:</label>
+            <input type="text" name="surname" id="surname" value="" autocomplete="off" placeholder="Bond" required>
+
+            <label for="surname">Your age:</label>
+            <input type="text" name="age" id="age" value="" inputmode="numeric" autocomplete="off" pattern="[0-9]+"
+                placeholder="25" required>
+
+            <fieldset>
+                <legend>Your gender:</legend>
+
+                <input type="radio" name="gender" id="man" value="man" required>
+                <label for="man">Man</label>
+
+                <input type="radio" name="gender" id="woman" value="woman" required>
+                <label for="woman">Woman</label>
+
+            </fieldset>
+
+            <label for="surname">Your gamertag:</label>
+            <input type="text" name="gamertag" id="gamertag" value="" autocomplete="off" placeholder="xXsupergamerXx"
+                required>
+
+            <input name="key" type="hidden" value="{{key}}">
+
+            <input type="submit" value="Next">
+
+            <a href="/start"> Get me back </a>
+
+        </fieldset>
+    </form>
+</main>

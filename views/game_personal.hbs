@@ -1,0 +1,57 @@
+{{> header}}
+
+<main>
+    <section>
+        <label for="progress"></label>
+        <progress id="progress" value="25" max="100"></progress>
+    </section>
+
+    <form action="/open_questions" method="POST" id="game-personal">
+        <fieldset>
+            <legend>Just about gaming</legend>
+
+            <label for="favorite-platform">What is your favorite platform?</label>
+            <input type="text" name="favorite-platform" id="favorite-platform" value="" autocomplete="off" required>
+
+            <label for="average-game-time">What is your average game time in a day?</label>
+            <input type="range" name="average-game-time" id="average-game-time" value="" autocomplete="off" required>
+
+            <fieldset>
+                <legend>Do you prefer multiplayer games or to go solo?</legend>
+
+                <input type="radio" name="prefer" id="multi-or-solo" value="multi-or-solo" required>
+                <label for="man">Multiplayer</label>
+
+                <input type="radio" name="prefer" id="multi-or-solo" value="multi-or-solo" required>
+                <label for="woman">Solo</label>
+
+            </fieldset>
+
+            <label for="average-game-time">What is your favorite game genre?</label>
+            <input list="game-genres" name="favorite-game-genre" id="favorite-game-genre" value="" autocomplete="off"
+                required>
+
+            <datalist id="game-genres">
+                <option value="Sandbox"></option>
+                <option value="Real-time strategy"></option>
+                <option value="Shooters"></option>
+                <option value="Multiplayer online battle arena"></option>
+                <option value="Simulation and sports"></option>
+                <option value="Puzzlers and party games"></option>
+                <option value="Action-adventure"></option>
+                <option value="Survival and horror"></option>
+                <option value="Platformer"></option>
+            </datalist>
+
+            <label for="favorite-game">What is your favorite game?</label>
+            <input type="text" name="favorite-game" id="favorite-game" value="" autocomplete="off" required>
+
+            <input name="key" type="hidden" value="{{key}}">
+
+            <a href="/personal_back">Previous</a>
+
+            <input type="submit" value="Next">
+
+        </fieldset>
+    </form>
+</main>
