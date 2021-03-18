@@ -19,11 +19,11 @@ I want to be able to fill out a survey where the questions are aimed at gamers, 
 
 ## Features
 
-- [ ] localStorage
+- [ ] [Localstorage](https://developer.mozilla.org/en-US/docs/Web/API/Storage_API)
 - [ ] Feature Detection
 - [ ] Progressive Enhancement
-- [ ] Constraint Validation
-- [ ] Clipboard
+- [ ] Form Validation
+- [ ] [Clipboard](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
 - [ ] Responsive
 - [ ] @support
 
@@ -64,18 +64,40 @@ These are the wireflows for the survey, start and end screen. I have annotations
 <details>
   <summary>The user flow of the main screens</summary>
   
-  ![WhatsApp Image 2021-03-17 at 14 50 00](https://user-images.githubusercontent.com/40355914/111487035-49bd6780-8738-11eb-9b41-ee18eb1de8e7.jpeg)
+  <img src="https://user-images.githubusercontent.com/40355914/111615802-6f527b80-87e1-11eb-8516-9e69c617741f.jpeg" width="750" height="auto" />
   
-  **Explanation...**
+  **Enhancements**
+  
+  1. **Progressbar:** In the flow of my application I want to create a progress bar that will change of value whenever a user goes to the next section of the survey. With this feature the users will know how much more of the survey they need to do, to finish it. When the users are done with one section they need to click on the `next` button and the progress bar will automatically update.
+  2. **Form validation:** My survey is going to exist mainly of inputs and form elements. This is why I want validations. I want to make form validations into my client-side javascript where it checks if the form elements are empty or not filled in and then shows a error message. The fields that are not filled in will be highlighted with a outline.
+  3. **Highlighting elements:** When a user selects a input field these will automatically be highlighted so the users knows where they are. This is also good for peope that use tabs to navigate through the application.
+  4. **Navigation between survey pages:** Users will be able to navigate back and forward between survey pages. On this way they can edit their answers if they need to.
+  5. **localStorage and write/read Json object:** I want to be able to get the writen data by the users from the localStorage client-side. Whenever Javascript is out or localStorage isn't working I want to have a back-up where the data will come out of a Json file. I will manage the data with a unique key that will be created on the server-side of my appllication. On this way I can give the users a unique key that they can fill in at the start of my application to get back where they left off in the survey.
+
+  ![301f5cf2-9b30-4892-ba55-8803f18d011d](https://user-images.githubusercontent.com/40355914/111615288-d6236500-87e0-11eb-97e9-75fd5916ef0a.jpeg)
+
+  6. **Responsive Design:** I will use the methode: `Mobile First` to make my application responsive. Next to this method I will make use of the `@support` rule to check-up if the CSS classes will be supported in all the browsers. When this is not the case I'll figure out a back-up plan, so that every browser can use my application.
+
+  **Different form elements I am going to use:**
+  - `<form> Element`
+  - `<input>: Checkbox Type`
+  - `<textarea> Element`
+  - `<input>: Text Type`
+  - `<input>: Range Type`
+  - `<select> Element`
+  - `<input>: Radio Button Type`
+  - `<label> Element`
   
 </details>
 
 <details>
   <summary>The start and end screen</summary>
   
-  ![WhatsApp Image 2021-03-17 at 14 50 00 (1)](https://user-images.githubusercontent.com/40355914/111487365-96a13e00-8738-11eb-9e28-6b29f07fb39d.jpeg)
+  <img src="https://user-images.githubusercontent.com/40355914/111617905-0587a100-87e4-11eb-8d3c-ed0420753423.jpeg" width="650" height="auto" >
   
-  **Explanation...**
+  **Enhancements**
+  1. **Unique code:** Every user that joins my survey will get a unique code that they will have to use when they don't finish the survey and come back later to fill it in further. This code is given whenever a user starts the survey. In the start screen users will be able to see a list of their unique codes and will be able to click on them and get back to where they left off. There will also be a input field where the user can put in one of the existing codes that he copied. 
+  2. **copy to clipboard:** User will be able to copy the unique code from the page without double clicking the code or using the mouse. When the user is navigated to the unique code page the only thing that needs to be done is to click the copy short code from the keyboard mac: `cmd + c` windows: `ctrl + c`.
   
 </details>
 
