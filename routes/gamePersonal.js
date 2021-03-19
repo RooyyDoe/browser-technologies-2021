@@ -3,7 +3,9 @@ const gamePersonalRoute = express.Router()
 
 gamePersonalRoute.use( (req, res) => {
 
-    res.render('game_personal')
+    givenCode = req.body.uniqueCode
+
+    res.render('game_personal', { uniqueCode: givenCode })
 })
 
 module.exports = gamePersonalRoute

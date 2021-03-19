@@ -31,21 +31,27 @@
             <textarea name="opinion-about-the-game" id="opinion-about-the-game" cols="50" rows="5"
                 placeholder="What do you think ?.." required></textarea>
 
-            <label for="give-a-number">Give the game a number (1 - 10):</label>
-            <input type="range" name="give-a-number" id="give-a-number" list="rate-options" value="" required>
+            <fieldset>
+                <legend>Give the game a number (1 - 5):</legend>
 
-            <datalist id="rate-options">
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
-                <option value="5"></option>
-                <option value="6"></option>
-                <option value="7"></option>
-                <option value="8"></option>
-                <option value="9"></option>
-                <option value="10"></option>
-            </datalist>
+                <input type="radio" name="rate" id="rate-1" value="1" checked required>
+                <label for="recommend-yes">1</label>
+
+                <input type="radio" name="rate" id="rate-2" value="2" required>
+                <label for="recommend-no">2</label>
+
+                <input type="radio" name="rate" id="rate-3" value="3" required>
+                <label for="recommend-yes">3</label>
+
+                <input type="radio" name="rate" id="rate-4" value="4" required>
+                <label for="recommend-no">4</label>
+
+                <input type="radio" name="rate" id="rate-5" value="5" required>
+                <label for="recommend-no">5</label>
+            </fieldset>
+
+            <label for="give-a-number">Give the game a number (1 - 5):</label>
+            <input type="range" name="give-a-number" id="give-a-number" list="rate-options" required>
 
             <label for="time-spend">How much time have you spend playing this game:</label>
             <input type="text" name="time-spend" id="time-spend" value="" inputmode="numeric" autocomplete="off"

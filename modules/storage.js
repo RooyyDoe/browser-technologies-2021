@@ -10,9 +10,10 @@ module.exports = {
         flag:'r',
     })),
     // Will save the new data to the path when it is submitted. Also turns the data
-    // it into a JSON string and after that returns it.
+    // it into a JSON string and after that returns it. The extra parameters give a good
+    // formatted JSON file
     saveNewData: (data, path) => {
-        fs.writeFileSync(path, JSON.stringify(data))
+        fs.writeFileSync(path, JSON.stringify(data, null, 2))
         return data
     }
 }
