@@ -42,18 +42,18 @@ app.set('view engine', 'hbs')
 
 // Routes
 app.get('/', router.start)
-app.get('/get_code', router.getCode)
+// app.get('/get_code', router.getCode)
 app.post('/personal', router.personal)
 app.post('/game_personal', router.gamePersonal)
 app.post('/open_questions', router.openQuestions)
 app.post('/rate_game', router.rateGame)
 
 // Back routes
-app.get('/start', router.start)
-app.get('/person-back/:id', router.personal_back)
-app.get('/game-personal-back/:id', router.gamePersonal_back)
-app.get('/open-questions-back/:id', router.openQuestions_back)
-app.get('/rate-game-back/:id', router.rateGame_back)
+// app.get('/start', router.start)
+// app.get('/person-back/:id', router.personal_back)
+// app.get('/game-personal-back/:id', router.gamePersonal_back)
+// app.get('/open-questions-back/:id', router.openQuestions_back)
+// app.get('/rate-game-back/:id', router.rateGame_back)
 
 // Starting up the server
 app.listen(port, () => console.log(`App now listening on port ${port}`))
