@@ -10,6 +10,8 @@
         <fieldset>
             <legend>Let's get personal</legend>
 
+            <input name="key" type="hidden" value="{{key}}">
+
             <label for="name">Your name:</label>
             <input type="text" name="name" id="name" value="" autocomplete="off" placeholder="James" required>
 
@@ -34,8 +36,6 @@
             <label for="surname">Your gamertag:</label>
             <input type="text" name="gamertag" id="gamertag" value="" autocomplete="off" placeholder="xXsupergamerXx"
                 required>
-
-            <input name="key" type="hidden" value="{{key}}">
 
             <input type="submit" value="Next">
 

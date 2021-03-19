@@ -3,14 +3,68 @@
 <main>
     <section>
         <label for="progress"></label>
-        <progress id="progress" value="0" max="100"></progress>
+        <progress id="progress" value="75" max="100"></progress>
     </section>
 
-    <form action="/end" method="POST" id="personal">
+    <form action="/end" method="POST" id="rate-game">
         <fieldset>
-            <legend></legend>
+            <legend>Rate your game</legend>
 
-            
+            <input name="key" type="hidden" value="{{key}}">
+
+            <label for="">Choose a game to judge:</label>
+            <input list="game-to-judge" name="game-to-judge" id="game-to-judge" value="" autocomplete="off" required>
+
+            <datalist id="game-genres">
+                <option value="Animal Crossing: New Horizons"></option>
+                <option value="Assassin’s Creed Valhalla"></option>
+                <option value="Bleeding Edge"></option>
+                <option value="Fortnite"></option>
+                <option value="Cyberpunk 2077"></option>
+                <option value="Dying Light 2"></option>
+                <option value="Final Fantasy 7 Remake"></option>
+                <option value="Ghost of Tsushima"></option>
+                <option value="League of Legends"></option>
+            </datalist>
+
+            <label for="opinion-about-the-game">What is your opinion about this game:</label>
+            <textarea name="opinion-about-the-game" id="opinion-about-the-game" cols="50" rows="5"
+                placeholder="What do you think ?.." required></textarea>
+
+            <label for="give-a-number">Give the game a number (1 - 10):</label>
+            <input type="range" name="give-a-number" id="give-a-number" list="rate-options" value="" required>
+
+            <datalist id="rate-options">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+                <option value="7"></option>
+                <option value="8"></option>
+                <option value="9"></option>
+                <option value="10"></option>
+            </datalist>
+
+            <label for="time-spend">How much time have you spend playing this game:</label>
+            <input type="text" name="time-spend" id="time-spend" value="" inputmode="numeric" autocomplete="off"
+                pattern="[0-9]+" placeholder="100" required>
+
+            <fieldset>
+                <legend>Would you recommend this game:</legend>
+
+                <input type="radio" name="recommend" id="recommend-yes" value="yes" required>
+                <label for="recommend-yes">Yes</label>
+
+                <input type="radio" name="recommend" id="recommend-no" value="no" required>
+                <label for="recommend-no">No</label>
+            </fieldset>
+
+            <a href="/openQuestions_back">Previous</a>
+
+            <input type="submit" value="Next">
+
         </fieldset>
     </form>
 </main>
