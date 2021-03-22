@@ -192,3 +192,5 @@ I want to create a survey for people that have interests in games. The survey wi
 - [Mozilla Developer Network](https://developer.mozilla.org/en-US/) - I mostly used this site to obtain my sources
 
 ## Credits
+
+- [Wessel Smit](https://github.com/WesselSmit) - BIG thanks for helping me with server-side!! 
