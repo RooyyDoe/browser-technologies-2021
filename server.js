@@ -17,6 +17,7 @@ const router = {
     gamePersonal: require('./routes/gamePersonal'),
     openQuestions: require('./routes/openQuestions'),
     rateGame: require('./routes/rateGame'),
+    end: require('./routes/end'),
     personal_back: require('./routes/rateGame'),
     gamePersonal_back: require('./routes/rateGame'),
     openQuestions_back: require('./routes/rateGame'),
@@ -52,9 +53,10 @@ app.post('/personal', router.personal)
 app.post('/game_personal', router.gamePersonal)
 app.post('/open_questions', router.openQuestions)
 app.post('/rate_game', router.rateGame)
+app.post('/end', router.end)
 
 // Back routes
-// app.get('/start', router.start)
+app.get('/start', router.start)
 // app.get('/person-back/:id', router.personal_back)
 // app.get('/game-personal-back/:id', router.gamePersonal_back)
 // app.get('/open-questions-back/:id', router.openQuestions_back)
