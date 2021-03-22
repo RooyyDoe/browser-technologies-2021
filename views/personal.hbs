@@ -10,7 +10,9 @@
         <fieldset>
             <legend>Let's get personal</legend>
 
+            {{#if uniqueCode}}
             <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
+            {{/if}}
 
             <label for="name">Your name:</label>
             <input type="text" name="name" id="name" value="" autocomplete="off" placeholder="James" required>

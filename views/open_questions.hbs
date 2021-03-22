@@ -10,7 +10,9 @@
         <fieldset>
             <legend>Your opinion is important</legend>
 
+            {{#if uniqueCode}}
             <input type="hidden" name="uniqueCode" value="{{uniqueCode}}">
+            {{/if}}
 
             <label for="favorite-game-of-all-time">What's your favorite game of all time? and why?</label>
             <textarea name="favorite-game-of-all-time" id="favorite-game-of-all-time" cols="50" rows="5"

@@ -14,7 +14,6 @@ indentificationRoute.use( (req, res) => {
     if (givenCode) {
         if(storage.checksIfFileExists(`./storage/${givenCode}.json`)){
             console.log('session exists')
-            res.render('personal', { uniqueCode: givenCode })
         } else {
             console.log('wrong key')
             res.render("invalid_code")

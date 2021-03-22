@@ -44,9 +44,10 @@ app.set('view engine', 'hbs')
 
 // Routes
 app.get('/', router.start)
-app.get('/get_code', router.getCode)
+
 app.post('/indentification', router.indentification)
 app.post('/invalid_code', router.invalidCode)
+app.get('/get_code', router.getCode)
 app.post('/personal', router.personal)
 app.post('/game_personal', router.gamePersonal)
 app.post('/open_questions', router.openQuestions)

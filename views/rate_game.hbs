@@ -10,7 +10,9 @@
         <fieldset>
             <legend>Rate your game</legend>
 
-            <input name="uniqueCode" type="hidden" value="{{key}}">
+            {{#if uniqueCode}}
+            <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
+            {{/if}}
 
             <label for="">Choose a game to judge:</label>
             <input list="game-to-judge" name="game-to-judge" id="game-to-judge" value="" autocomplete="off" required>

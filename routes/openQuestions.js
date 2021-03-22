@@ -5,7 +5,7 @@ startRoute.use( (req, res) => {
 
     givenCode = req.body.uniqueCode
 
-    res.render('open_questions')
+    res.render('open_questions', { uniqueCode: givenCode})
 })
 
 module.exports = startRoute

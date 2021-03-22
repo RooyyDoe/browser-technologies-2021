@@ -17,7 +17,6 @@ invalidCodeRoute.use( (req, res) => {
         // If not we will rerender the invalid code page where users can try again or start a new session.
         if(givenCode && storage.checksIfFileExists(`./storage/${givenCode}.json`)){
             console.log('session exists')
-            res.render('personal', { uniqueCode: givenCode })
         } else {
             console.log('wrong key')
             res.render('invalid_code')

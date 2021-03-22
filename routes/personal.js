@@ -10,6 +10,10 @@ const personalRoute = express.Router()
 personalRoute.use( (req, res) => {
     // Unique user code
     givenCode = req.body.uniqueCode
+
+    console.log('start', givenCode)
+
+    res.render('personal', { uniqueCode: givenCode })
     
 })
 
