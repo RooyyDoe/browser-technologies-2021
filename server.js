@@ -11,6 +11,8 @@ const app = express();
 const router = {
     start: require('./routes/start'),
     getCode: require('./routes/getCode'),
+    indentification: require('./routes/indentification'),
+    invalidCode: require('./routes/invalidCode'),
     personal: require('./routes/personal'),
     gamePersonal: require('./routes/gamePersonal'),
     openQuestions: require('./routes/openQuestions'),
@@ -42,7 +44,9 @@ app.set('view engine', 'hbs')
 
 // Routes
 app.get('/', router.start)
-// app.get('/get_code', router.getCode)
+app.get('/get_code', router.getCode)
+app.post('/indentification', router.indentification)
+app.post('/invalid_code', router.invalidCode)
 app.post('/personal', router.personal)
 app.post('/game_personal', router.gamePersonal)
 app.post('/open_questions', router.openQuestions)

@@ -1,0 +1,24 @@
+{{> header}}
+
+<main id="start-page">
+
+    <section id="banner-image" title="Gaming survey banner"></section>
+
+    <form action="/invalid_code" method="POST">
+        <fieldset>
+            <legend>
+                <strong>The entered code</strong> is wrong! please try again
+            </legend>
+            <p>Look good if you have writen down the code correctly. Other ways you will have to start a new session!
+            </p>
+
+            <label>Enter your unique code to go on with the survey: </label>
+            <input type="text" name="uniqueCode" id="unique-code" placeholder="Unique code example" autocomplete="off">
+
+            <input type="submit" name="again" value="Try again">
+
+            <input type="submit" name="getCode" value="Start new session">
+        </fieldset>
+    </form>
+
+</main>
