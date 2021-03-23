@@ -1,9 +1,6 @@
-const express = require('express')
 const { uid } = require('uid')
 
-const getCodeRoute = express.Router()
-
-getCodeRoute.use( (req, res) => {
+module.exports = ( (req, res) => {
     // creates unique code
     const uniqueCode = uid()
     console.log('new code:', uniqueCode)
@@ -11,5 +8,3 @@ getCodeRoute.use( (req, res) => {
     res.render('get_code', { uniqueCode })
 
 })
-
-module.exports = getCodeRoute

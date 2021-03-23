@@ -3,7 +3,6 @@ require("dotenv").config()
 const port = process.env.PORT || 3000
 const express = require('express')
 const exphbs = require('express-handlebars')
-const Handlebars = require('handlebars')
 const path = require('path')
 
 const app = express();
@@ -19,10 +18,10 @@ const router = {
     openQuestions: require('./routes/openQuestions'),
     rateGame: require('./routes/rateGame'),
     end: require('./routes/end'),
-    personal_back: require('./routes/rateGame'),
-    gamePersonal_back: require('./routes/rateGame'),
-    openQuestions_back: require('./routes/rateGame'),
-    rateGame_back: require('./routes/rateGame'),
+    personal_back: require('./routes/personal_back'),
+    gamePersonal_back: require('./routes/gamePersonal_back'),
+    openQuestions_back: require('./routes/openQuestions_back'),
+    rateGame_back: require('./routes/rateGame_back'),
 }
 
 // custom handlebars helper function
@@ -66,10 +65,10 @@ app.post('/end', router.end)
 
 // Back routes
 app.get('/start', router.start)
-// app.get('/person-back/:id', router.personal_back)
-// app.get('/game-personal-back/:id', router.gamePersonal_back)
-// app.get('/open-questions-back/:id', router.openQuestions_back)
-// app.get('/rate-game-back/:id', router.rateGame_back)
+app.use('/personal_back/:id', router.personal_back)
+app.use('/game_personal_back/:id', router.gamePersonal_back)
+app.use('/open_questions_back/:id', router.openQuestions_back)
+app.use('/rate_game_back/:id', router.rateGame_back)
 
 // Starting up the server
 app.listen(port, () => console.log(`App now listening on port ${port}`))
