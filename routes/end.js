@@ -1,10 +1,6 @@
-const express = require('express')
-
 const storage = require('../modules/storage')
 
-const endRoute = express.Router()
-
-endRoute.use( (req, res) => {
+module.exports = ( (req, res) => {
 
     givenCode = req.body.uniqueCode
 
@@ -19,5 +15,3 @@ endRoute.use( (req, res) => {
 
     res.render('end')
 })
-
-module.exports = endRoute

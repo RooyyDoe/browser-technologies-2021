@@ -1,11 +1,7 @@
-const express = require('express')
-
 const storage = require('../modules/storage')
 const proggression = require('../modules/progression')
 
-const indentificationRoute = express.Router()
-
-indentificationRoute.use( (req, res) => {
+module.exports = ( (req, res) => {
     // console.log(req, storage)
     // Key that is passed through the start screen
     givenCode = req.body.uniqueCode
@@ -68,5 +64,3 @@ indentificationRoute.use( (req, res) => {
     }
     
 })
-
-module.exports = indentificationRoute

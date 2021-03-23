@@ -1,5 +1,5 @@
 {
-  "code": "f549fe447a3",
+  "code": "fadaa248391",
   "personal": {
     "name": "Roy",
     "surname": "Kuijper",
@@ -8,16 +8,16 @@
     "gamertag": "gamer"
   },
   "game_personal": {
-    "favorite-platform": "",
-    "average-game-time": "",
-    "prefer": "",
-    "favorite-game-genre": "",
-    "favorite-game": ""
+    "favorite-platform": "ps4",
+    "average-game-time": "2 hours",
+    "prefer": "multiplayer",
+    "favorite-game-genre": "Real-time strategy",
+    "favorite-game": "lol"
   },
   "open_questions": {
-    "favorite-game-of-all-time": "",
-    "what-would-you-do": "",
-    "into-video-games": ""
+    "favorite-game-of-all-time": "Gaming",
+    "what-would-you-do": "Gaming",
+    "into-video-games": "Gaming"
   },
   "rate_game": {
     "game-to-judge": "",

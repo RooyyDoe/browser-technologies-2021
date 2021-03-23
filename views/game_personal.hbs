@@ -17,10 +17,10 @@
             <label for="favorite-platform">What is your favorite platform?</label>
             {{#if answers.game_personal.favorite-platform }}
             <input type="text" name="favorite-platform" id="favorite-platform"
-                value="{{answers.game_personal.favorite-platform}}" autocomplete="off" required>
+                value="{{answers.game_personal.favorite-platform}}" autocomplete="off" autofocus required>
             {{else }}
             <input type="text" name="favorite-platform" id="favorite-platform" placeholder="Xbox one.."
-                autocomplete="off" required>
+                autocomplete="off" autofocus required>
             {{/if}}
 
             <label for="average-game-time">What is your average game time in a day?</label>
@@ -36,16 +36,16 @@
                 <legend>Do you prefer multiplayer games or to go solo?</legend>
 
                 {{#ifEqual answers.game_personal.prefer "multiplayer" }}
-                <input type="radio" name="prefer" id="multiplayer" value="multi-or-solo" checked required>
+                <input type="radio" name="prefer" id="multiplayer" value="multiplayer" checked required>
                 {{else}}
-                <input type="radio" name="prefer" id="multiplayer" value="multi-or-solo" required>
+                <input type="radio" name="prefer" id="multiplayer" value="multiplayer" required>
                 {{/ifEqual}}
                 <label for="man">Multiplayer</label>
 
                 {{#ifEqual answers.game_personal.prefer "solo"}}
-                <input type="radio" name="prefer" id="solo" value="multi-or-solo" checked required>
+                <input type="radio" name="prefer" id="solo" value="solo" checked required>
                 {{else}}
-                <input type="radio" name="prefer" id="solo" value="multi-or-solo" required>
+                <input type="radio" name="prefer" id="solo" value="solo" required>
                 {{/ifEqual}}
                 <label for="woman">Solo</label>
 
@@ -73,8 +73,8 @@
             </datalist>
 
             <label for="favorite-game">What is your favorite game?</label>
-            {{#if answers.game_personal.favorite.game }}
-            <input type="text" name="favorite-game" id="favorite-game" value="{{ansers.game_personal.favorite.game}}"
+            {{#if answers.game_personal.favorite-game }}
+            <input type="text" name="favorite-game" id="favorite-game" value="{{answers.game_personal.favorite-game}}"
                 autocomplete="off" required>
             {{else}}
             <input type="text" name="favorite-game" id="favorite-game" placeholder="League of Legends.."

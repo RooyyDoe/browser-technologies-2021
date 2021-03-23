@@ -1,10 +1,6 @@
-const express = require('express')
-
 const storage = require('../modules/storage')
 
-const personalRoute = express.Router()
-
-personalRoute.use( (req, res) => {
+module.exports = ( (req, res) => {
     // Unique user code
     givenCode = req.body.uniqueCode
 
@@ -45,5 +41,3 @@ personalRoute.use( (req, res) => {
     res.render('personal', { uniqueCode: givenCode })
     
 })
-
-module.exports = personalRoute

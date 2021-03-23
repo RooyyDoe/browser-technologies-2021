@@ -1,8 +1,13 @@
-const express = require('express')
-const startRoute = express.Router()
+const storage = require('../modules/storage')
 
-startRoute.use( (req, res) => {
-    res.render('start')
+module.exports = ( (req, res) => {
+
+    givenCode = req.params.id
+
+    const session = storage.getExistingData(`./storage/${givenCode}.json`)
+
+    res.render('open_questions', {
+        uniqueCode: givenCode,
+        answers: session
+    })
 })
-
-module.exports = startRoute

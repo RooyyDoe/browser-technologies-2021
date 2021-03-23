@@ -16,11 +16,11 @@
 
             <label for="">Choose a game to judge:</label>
             {{#if answers.rate_game.game-to-judge }}
-            <input list="game-to-judge" name="game-to-judge" id="game-to-judge"
-                value="{{answers.rate_game.game-to-judge}}" autocomplete="off" required>
+            <input list="game-genres" name="game-to-judge" id="game-to-judge"
+                value="{{answers.rate_game.game-to-judge}}" autocomplete="off" autofocus required>
             {{else}}
-            <input list="game-to-judge" name="game-to-judge" id="game-to-judge" autocomplete="off"
-                placeholder="League of Legends" required>
+            <input list="game-genres" name="game-to-judge" id="game-to-judge" autocomplete="off"
+                placeholder="League of Legends" autofocus required>
             {{/if}}
 
             <datalist id="game-genres">
@@ -108,7 +108,7 @@
 
             </fieldset>
 
-            <a href="/openQuestions_back">Previous</a>
+            <a href="/open_questions_back/{{uniqueCode}}">Previous</a>
 
             <input type="submit" value="Next">
 

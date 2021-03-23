@@ -1,10 +1,6 @@
-const express = require('express')
-
 const storage = require('../modules/storage')
 
-const startRoute = express.Router()
-
-startRoute.use( (req, res) => {
+module.exports = ( (req, res) => {
 
     givenCode = req.body.uniqueCode
 
@@ -17,7 +13,8 @@ startRoute.use( (req, res) => {
     // saves new filled in data to json file 
     storage.saveNewData(session, `./storage/${givenCode}.json`)
 
-    res.render('rate_game', { uniqueCode: givenCode})
+    res.render('rate_game', { 
+        uniqueCode: givenCode,
+        answers: session
+    })
 })
-
-module.exports = startRoute

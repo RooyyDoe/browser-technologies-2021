@@ -1,8 +1,3 @@
-const express = require('express')
-const startRoute = express.Router()
-
-startRoute.use( (req, res) => {
+module.exports = ( (req, res) => {
     res.render('start')
 })
-
-module.exports = startRoute

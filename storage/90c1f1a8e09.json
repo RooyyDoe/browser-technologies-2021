@@ -1,18 +1,18 @@
 {
-  "code": "9ef7ea997a8",
+  "code": "90c1f1a8e09",
   "personal": {
     "name": "Roy",
     "surname": "Kuijper",
     "age": "23",
     "gender": "man",
-    "gamertag": "gaming"
+    "gamertag": "gamer"
   },
   "game_personal": {
-    "favorite-platform": "",
-    "average-game-time": "",
-    "prefer": "",
-    "favorite-game-genre": "",
-    "favorite-game": ""
+    "favorite-platform": "xbox",
+    "average-game-time": "2",
+    "prefer": "multiplayer",
+    "favorite-game-genre": "Simulation and sports",
+    "favorite-game": "League of legends"
   },
   "open_questions": {
     "favorite-game-of-all-time": "",

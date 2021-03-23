@@ -17,9 +17,10 @@
 
             <label for="name">Your name:</label>
             {{#if answers.personal.name }}
-            <input type="text" name="name" id="name" value="{{answers.personal.name}}" autocomplete="off" required>
+            <input type="text" name="name" id="name" value="{{answers.personal.name}}" autocomplete="off" autofocus
+                required>
             {{else}}
-            <input type="text" name="name" id="name" autocomplete="off" placeholder="James" required>
+            <input type="text" name="name" id="name" autocomplete="off" placeholder="James" autofocus required>
             {{/if}}
 
 
@@ -61,7 +62,7 @@
 
             <label for="surname">Your gamertag:</label>
             {{#if answers.personal.gamertag }}
-            <input type="text" name="gamertag" id="gamertag" value="answers.personal.gamertag" autocomplete="off"
+            <input type="text" name="gamertag" id="gamertag" value="{{answers.personal.gamertag}}" autocomplete="off"
                 required>
             {{else}}
             <input type="text" name="gamertag" id="gamertag" value="" autocomplete="off" placeholder="xXsupergamerXx"

@@ -2,9 +2,7 @@ const express = require('express')
 
 const storage = require('../modules/storage')
 
-const gamePersonalRoute = express.Router()
-
-gamePersonalRoute.use( (req, res) => {
+module.exports = ( (req, res) => {
 
     givenCode = req.body.uniqueCode
 
@@ -19,7 +17,8 @@ gamePersonalRoute.use( (req, res) => {
     // saves new filled in data to json file 
     storage.saveNewData(session, `./storage/${givenCode}.json`)
 
-    res.render('game_personal', { uniqueCode: givenCode })
+    res.render('game_personal', { 
+        uniqueCode: givenCode,
+        answers: session
+    })
 })
-
-module.exports = gamePersonalRoute

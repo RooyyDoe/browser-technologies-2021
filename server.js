@@ -65,10 +65,10 @@ app.post('/end', router.end)
 
 // Back routes
 app.get('/start', router.start)
-app.use('/personal_back/:id', router.personal_back)
-app.use('/game_personal_back/:id', router.gamePersonal_back)
-app.use('/open_questions_back/:id', router.openQuestions_back)
-app.use('/rate_game_back/:id', router.rateGame_back)
+app.get('/personal_back/:id', router.personal_back)
+app.get('/game_personal_back/:id', router.gamePersonal_back)
+app.get('/open_questions_back/:id', router.openQuestions_back)
+app.get('/rate_game_back/:id', router.rateGame_back)
 
 // Starting up the server
 app.listen(port, () => console.log(`App now listening on port ${port}`))

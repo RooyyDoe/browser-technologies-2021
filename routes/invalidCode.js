@@ -1,10 +1,6 @@
-const express = require('express')
-
 const storage = require('../modules/storage')
 
-const invalidCodeRoute = express.Router()
-
-invalidCodeRoute.use( (req, res) => { 
+module.exports = ( (req, res) => { 
 
     givenCode = req.body.uniqueCode
 
@@ -65,5 +61,3 @@ invalidCodeRoute.use( (req, res) => {
     }
 
 })
-
-module.exports = invalidCodeRoute
