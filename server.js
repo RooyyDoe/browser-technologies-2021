@@ -3,6 +3,7 @@ require("dotenv").config()
 const port = process.env.PORT || 3000
 const express = require('express')
 const exphbs = require('express-handlebars')
+const Handlebars = require('handlebars')
 const path = require('path')
 
 const app = express();
@@ -24,10 +25,18 @@ const router = {
     rateGame_back: require('./routes/rateGame'),
 }
 
+// custom handlebars helper function
+const ifEquals = (arg1, arg2, options) => {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+}
+
 // Defining my template engine
 const hbs = exphbs.create({
     extname: '.hbs',
     defaultLayout: 'main',
+    helpers: {
+        ifEqual: ifEquals
+    }
 })
 
 // Public folder for the assets

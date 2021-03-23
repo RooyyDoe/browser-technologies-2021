@@ -14,30 +14,59 @@
             <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
             {{/if}}
 
+
             <label for="name">Your name:</label>
-            <input type="text" name="name" id="name" value="" autocomplete="off" placeholder="James" required>
+            {{#if answers.personal.name }}
+            <input type="text" name="name" id="name" value="{{answers.personal.name}}" autocomplete="off" required>
+            {{else}}
+            <input type="text" name="name" id="name" autocomplete="off" placeholder="James" required>
+            {{/if}}
+
 
             <label for="surname">Your surname:</label>
+            {{#if answers.personal.surname }}
+            <input type="text" name="surname" id="surname" value="{{answers.personal.surname}}" autocomplete="off"
+                required>
+            {{else}}
             <input type="text" name="surname" id="surname" value="" autocomplete="off" placeholder="Bond" required>
+            {{/if}}
+
 
             <label for="surname">Your age:</label>
+            {{#if answers.personal.age }}
+            <input type="text" name="age" id="age" value="{{answers.personal.age}}" inputmode="numeric"
+                autocomplete="off" pattern="[0-9]+" required>
+            {{else}}
             <input type="text" name="age" id="age" value="" inputmode="numeric" autocomplete="off" pattern="[0-9]+"
                 placeholder="25" required>
+            {{/if}}
 
             <fieldset>
                 <legend>Your gender:</legend>
 
+                {{#ifEqual answers.personal.gender "man"}}
+                <input type="radio" name="gender" id="man" value="man" checked required>
+                {{else}}
                 <input type="radio" name="gender" id="man" value="man" required>
+                {{/ifEqual}}
                 <label for="man">Man</label>
-
+                {{#ifEqual answers.personal.gender "woman"}}
+                <input type="radio" name="gender" id="woman" value="woman" checked required>
+                {{else}}
                 <input type="radio" name="gender" id="woman" value="woman" required>
+                {{/ifEqual}}
                 <label for="woman">Woman</label>
 
             </fieldset>
 
             <label for="surname">Your gamertag:</label>
+            {{#if answers.personal.gamertag }}
+            <input type="text" name="gamertag" id="gamertag" value="answers.personal.gamertag" autocomplete="off"
+                required>
+            {{else}}
             <input type="text" name="gamertag" id="gamertag" value="" autocomplete="off" placeholder="xXsupergamerXx"
                 required>
+            {{/if}}
 
             <a href="/start"> Get me back </a>
 
