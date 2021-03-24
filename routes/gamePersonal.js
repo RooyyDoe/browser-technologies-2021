@@ -1,14 +1,10 @@
-const { body, validationResult } = require('express-validator');
-
 const storage = require('../modules/storage')
 
 module.exports = ( (req, res) => {
 
-    console.log(body())
+    console.log(req.body)
 
     givenCode = req.body.uniqueCode
-
-    console.log(givenCode)
 
     const session = storage.getExistingData(`./storage/${givenCode}.json`)
 

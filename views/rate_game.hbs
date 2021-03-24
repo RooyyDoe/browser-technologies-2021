@@ -1,8 +1,11 @@
 {{> header}}
 
 <main>
-    <section>
-        <label for="progress"></label>
+
+    <section id="background-image" title="Gaming survey background image"></section>
+
+    <section id="progression">
+        <label for="progress">Progress: 75%</label>
         <progress id="progress" value="75" max="100"></progress>
     </section>
 
@@ -14,103 +17,107 @@
             <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
             {{/if}}
 
-            <label for="">Choose a game to judge:</label>
-            {{#if answers.rate_game.game-to-judge }}
-            <input list="game-genres" name="game-to-judge" id="game-to-judge"
-                value="{{answers.rate_game.game-to-judge}}" autocomplete="off" autofocus required>
-            {{else}}
-            <input list="game-genres" name="game-to-judge" id="game-to-judge" autocomplete="off"
-                placeholder="League of Legends" autofocus required>
-            {{/if}}
-
-            <datalist id="game-genres">
-                <option value="Animal Crossing: New Horizons"></option>
-                <option value="Assassin’s Creed Valhalla"></option>
-                <option value="Bleeding Edge"></option>
-                <option value="Fortnite"></option>
-                <option value="Cyberpunk 2077"></option>
-                <option value="Dying Light 2"></option>
-                <option value="Final Fantasy 7 Remake"></option>
-                <option value="Ghost of Tsushima"></option>
-                <option value="League of Legends"></option>
-            </datalist>
-
-            <label for="opinion-about-the-game">What is your opinion about this game:</label>
-            <textarea name="opinion-about-the-game" id="opinion-about-the-game" cols="50" rows="5"
-                placeholder="I think this game is awesome.."
-                required>{{#if answers.rate_game.opinion-about-the-game }}{{answers.rate_game.opinion-about-the-game}}{{/if}}</textarea>
-
-            <fieldset>
-                <legend>Give the game a number (1 - 5):</legend>
-
-                {{#ifEqual answers.rate_game.rate "1" }}
-                <input type="radio" name="rate" id="rate-1" value="1" checked required>
+            <section id="form-section">
+                <label for="">Choose a game to judge:</label>
+                {{#if answers.rate_game.game-to-judge }}
+                <input list="game-genres" name="game-to-judge" id="game-to-judge"
+                    value="{{answers.rate_game.game-to-judge}}" autocomplete="off" autofocus required>
                 {{else}}
-                <input type="radio" name="rate" id="rate-1" value="1" required>
-                {{/ifEqual}}
-                <label for="recommend-yes">1</label>
+                <input list="game-genres" name="game-to-judge" id="game-to-judge" autocomplete="off"
+                    placeholder="League of Legends" autofocus required>
+                {{/if}}
 
-                {{#ifEqual answers.rate_game.rate "2" }}
-                <input type="radio" name="rate" id="rate-2" value="2" checked required>
+                <datalist id="game-genres">
+                    <option value="Animal Crossing: New Horizons"></option>
+                    <option value="Assassin’s Creed Valhalla"></option>
+                    <option value="Bleeding Edge"></option>
+                    <option value="Fortnite"></option>
+                    <option value="Cyberpunk 2077"></option>
+                    <option value="Dying Light 2"></option>
+                    <option value="Final Fantasy 7 Remake"></option>
+                    <option value="Ghost of Tsushima"></option>
+                    <option value="League of Legends"></option>
+                </datalist>
+
+                <label for="opinion-about-the-game">What is your opinion about this game:</label>
+                <textarea name="opinion-about-the-game" id="opinion-about-the-game" cols="50" rows="5"
+                    placeholder="I think this game is awesome.."
+                    required>{{#if answers.rate_game.opinion-about-the-game }}{{answers.rate_game.opinion-about-the-game}}{{/if}}</textarea>
+
+                <fieldset id="radio-button">
+                    <legend>Give the game a number (1 - 5):</legend>
+
+                    {{#ifEqual answers.rate_game.rate "1" }}
+                    <input type="radio" name="rate" id="rate-1" value="1" checked required>
+                    {{else}}
+                    <input type="radio" name="rate" id="rate-1" value="1" required>
+                    {{/ifEqual}}
+                    <label for="recommend-yes">1</label>
+
+                    {{#ifEqual answers.rate_game.rate "2" }}
+                    <input type="radio" name="rate" id="rate-2" value="2" checked required>
+                    {{else}}
+                    <input type="radio" name="rate" id="rate-2" value="2" required>
+                    {{/ifEqual}}
+                    <label for="recommend-no">2</label>
+
+                    {{#ifEqual answers.rate_game.rate "3" }}
+                    <input type="radio" name="rate" id="rate-3" value="3" checked required>
+                    {{else}}
+                    <input type="radio" name="rate" id="rate-3" value="3" required>
+                    {{/ifEqual}}
+                    <label for="recommend-yes">3</label>
+
+                    {{#ifEqual answers.rate_game.rate "4" }}
+                    <input type="radio" name="rate" id="rate-4" value="4" checked required>
+                    {{else}}
+                    <input type="radio" name="rate" id="rate-4" value="4" required>
+                    {{/ifEqual}}
+                    <label for="recommend-no">4</label>
+
+                    {{#ifEqual answers.rate_game.rate "5" }}
+                    <input type="radio" name="rate" id="rate-5" value="5" checked required>
+                    {{else}}
+                    <input type="radio" name="rate" id="rate-5" value="5" required>
+                    {{/ifEqual}}
+                    <label for="recommend-no">5</label>
+
+                </fieldset>
+
+                <label for="time-spend">How much time have you spend playing this game:</label>
+                {{#if answers.rate_game.time-spend }}
+                <input type="text" name="time-spend" id="time-spend" value="{{answers.rate_game.time-spend}}"
+                    inputmode="numeric" autocomplete="off" pattern="[0-9]+" required>
                 {{else}}
-                <input type="radio" name="rate" id="rate-2" value="2" required>
-                {{/ifEqual}}
-                <label for="recommend-no">2</label>
+                <input type="text" name="time-spend" id="time-spend" inputmode="numeric" autocomplete="off"
+                    pattern="[0-9]+" placeholder="100" required>
+                {{/if}}
 
-                {{#ifEqual answers.rate_game.rate "3" }}
-                <input type="radio" name="rate" id="rate-3" value="3" checked required>
-                {{else}}
-                <input type="radio" name="rate" id="rate-3" value="3" required>
-                {{/ifEqual}}
-                <label for="recommend-yes">3</label>
+                <fieldset id="radio-button">
+                    <legend>Would you recommend this game:</legend>
 
-                {{#ifEqual answers.rate_game.rate "4" }}
-                <input type="radio" name="rate" id="rate-4" value="4" checked required>
-                {{else}}
-                <input type="radio" name="rate" id="rate-4" value="4" required>
-                {{/ifEqual}}
-                <label for="recommend-no">4</label>
+                    {{#ifEqual answers.rate_game.recommend "yes" }}
+                    <input type="radio" name="recommend" id="recommend-yes" value="yes" checked required>
+                    {{else}}
+                    <input type="radio" name="recommend" id="recommend-yes" value="yes" required>
+                    {{/ifEqual}}
+                    <label for="recommend-yes">Yes</label>
 
-                {{#ifEqual answers.rate_game.rate "5" }}
-                <input type="radio" name="rate" id="rate-5" value="5" checked required>
-                {{else}}
-                <input type="radio" name="rate" id="rate-5" value="5" required>
-                {{/ifEqual}}
-                <label for="recommend-no">5</label>
+                    {{#ifEqual answers.rate_game.recommend "no" }}
+                    <input type="radio" name="recommend" id="recommend-no" value="no" checked required>
+                    {{else}}
+                    <input type="radio" name="recommend" id="recommend-no" value="no" required>
+                    {{/ifEqual}}
+                    <label for="recommend-no">No</label>
 
-            </fieldset>
+                </fieldset>
 
-            <label for="time-spend">How much time have you spend playing this game:</label>
-            {{#if answers.rate_game.time-spend }}
-            <input type="text" name="time-spend" id="time-spend" value="{{answers.rate_game.time-spend}}"
-                inputmode="numeric" autocomplete="off" pattern="[0-9]+" required>
-            {{else}}
-            <input type="text" name="time-spend" id="time-spend" inputmode="numeric" autocomplete="off" pattern="[0-9]+"
-                placeholder="100" required>
-            {{/if}}
+                <section id="buttons">
+                    <a href="/open_questions_back/{{uniqueCode}}">Previous</a>
 
-            <fieldset>
-                <legend>Would you recommend this game:</legend>
-
-                {{#ifEqual answers.rate_game.recommend "yes" }}
-                <input type="radio" name="recommend" id="recommend-yes" value="yes" checked required>
-                {{else}}
-                <input type="radio" name="recommend" id="recommend-yes" value="yes" required>
-                {{/ifEqual}}
-                <label for="recommend-yes">Yes</label>
-
-                {{#ifEqual answers.rate_game.recommend "no" }}
-                <input type="radio" name="recommend" id="recommend-no" value="no" checked required>
-                {{else}}
-                <input type="radio" name="recommend" id="recommend-no" value="no" required>
-                {{/ifEqual}}
-                <label for="recommend-no">No</label>
-
-            </fieldset>
-
-            <a href="/open_questions_back/{{uniqueCode}}">Previous</a>
-
-            <input type="submit" value="Next">
+                    <input type="submit" value="Next">
+                </section>
+            </section>
 
         </fieldset>
     </form>

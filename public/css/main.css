@@ -1,27 +1,273 @@
 /* this is going to be my CSS file */
 
 @font-face {
-  font-family: "SpiegelCd";
-  src: url("../fonts/SpiegelCd.ttf");
-  font-weight: bold;
+  font-family: "BeaufortforLOL";
+  src: url("../fonts/Beaufort-Regular.ttf"),
+    url("../fonts/Beaufort-Regular.woff"),
+    url("../fonts/Beaufort-Regular.woff2");
 }
 
 @font-face {
-  font-family: "BeaufortforLOL-Bold";
-  src: url("//db.onlinewebfonts.com/t/12420e8c141ca7c3dff41de2d59df13e.eot");
-  src: url("//db.onlinewebfonts.com/t/12420e8c141ca7c3dff41de2d59df13e.eot?#iefix")
-      format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/12420e8c141ca7c3dff41de2d59df13e.woff2")
-      format("woff2"),
-    url("//db.onlinewebfonts.com/t/12420e8c141ca7c3dff41de2d59df13e.woff")
-      format("woff"),
-    url("//db.onlinewebfonts.com/t/12420e8c141ca7c3dff41de2d59df13e.ttf")
-      format("truetype"),
-    url("//db.onlinewebfonts.com/t/12420e8c141ca7c3dff41de2d59df13e.svg#BeaufortforLOL-Bold")
-      format("svg");
+  font-family: "BeaufortforLOL-bold";
+  src: url("../fonts/Beaufort-Bold.ttf"), url("../fonts/Beaufort-Bold.woff"),
+    url("../fonts/Beaufort-Bold.woff2");
 }
 
-/* body {
-  font-family: "SpiegelCd", Times, serif;
-  font-size: 1.5em;
-} */
+@font-face {
+  font-family: "BeaufortLOL-Light";
+  src: url("../fonts/Beaufort-light.otf");
+}
+
+html {
+  font-family: "BeaufortforLOL", Times, serif;
+  color: #d5b26e;
+  font-size: 1em;
+}
+
+body {
+  background: #111;
+  margin: 0;
+}
+
+main {
+  width: 100%;
+}
+
+/* header */
+
+header {
+  padding: 4em;
+  text-align: center;
+}
+
+header > img {
+  width: 1.8em;
+  display: block;
+  position: absolute;
+  left: 47%;
+  bottom: 85%;
+}
+
+/* progression bar */
+
+#progression {
+  display: flex;
+  margin: 1em;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+#progression > label {
+  align-self: center;
+}
+
+#progression > progress {
+  -webkit-appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #fff;
+  border-radius: 1em;
+}
+progress::-webkit-progress-value {
+  background-color: #d5b26e;
+  border-radius: 1em;
+}
+
+/* content */
+
+form {
+  text-align: center;
+  margin: auto;
+}
+
+#form-section {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+fieldset {
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+legend {
+  font-family: "BeaufortforLOL-bold", Times, serif;
+  font-size: 5.5vw;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 0.5em;
+}
+
+#start > fieldset > p {
+  font-family: "BeaufortLOL-Light", Times, serif;
+  font-size: 3.5vw;
+  margin: 0;
+  padding-bottom: 1em;
+}
+
+/* input fields / labels */
+
+#radio-button {
+  display: block;
+  align-self: start;
+}
+
+label,
+#radio-button > legend {
+  font-family: "BeaufortLOL-Light", Times, serif;
+  text-transform: none;
+  color: #937341;
+  text-align: start;
+  padding: 0.5em 0;
+  font-size: 1em;
+  align-self: start;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  font-family: "BeaufortLOL-Light", Times, serif;
+  font-size: 2em;
+  color: #c4b998;
+  border: none;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #937341;
+  background: transparent;
+}
+
+/* radio buttons */
+
+input[type="radio"] {
+  opacity: 0;
+}
+
+input[type="radio"] + label {
+  display: inline-block;
+  border: 1px solid #937341;
+  padding: 1em 2em;
+  margin: 0.5em;
+  border-radius: 0.3em;
+}
+
+input:checked + label {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* button */
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+input[type="submit"],
+a {
+  padding: 1.2em;
+  margin: 1em;
+  min-width: 240px;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+input[type="submit"],
+a {
+  font-family: "BeaufortLOL-Light", Times, serif;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #937341;
+  background: #000;
+  border: solid 3px transparent;
+  align-self: center;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(180deg, #ecc572 0, #815500);
+  background-origin: border-box;
+  box-shadow: 2px 1000px 1px #000 inset;
+  transition: 1s;
+}
+
+input[type="submit"]:hover {
+  color: #fff;
+  transition: 1s;
+}
+
+/* background image */
+
+#background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+}
+
+#background-image:before {
+  content: "";
+  background: url("../images/background-image.jpeg");
+  background-size: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.15;
+  filter: blur(5px);
+}
+
+#background-image:after {
+  content: "";
+  background: url("../images/background-image.jpeg");
+  background-size: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+/* alert */
+
+#alert {
+  display: flex;
+  border: 2px solid #be1e37;
+  padding: 0.1em 1em;
+}
+
+#alert > img {
+  padding-right: 1em;
+  width: 2em;
+  height: auto;
+}
+
+/* media queries */
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  header > img {
+    left: 49%;
+  }
+
+  #form-section {
+    width: 40%;
+  }
+}

@@ -15,8 +15,6 @@ module.exports = ( (req, res) => {
             // returns a array of booleans TRUE | FALSE
             const userProgress = proggression(session)
 
-            console.log('test', userProgress[0])
-
             // checks if the personal questions are filled in or not
             // if so go next ↓
             if (!userProgress[0]) {

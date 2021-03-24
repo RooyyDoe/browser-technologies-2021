@@ -2,20 +2,21 @@
 
 <main id="start-page">
 
-    <section id="banner-image" title="Gaming survey banner"></section>
+    <section id="background-image" title="Gaming survey background image"></section>
 
-    <form action="/indentification" method="POST">
+    <form action="/indentification" method="POST" id="start">
         <fieldset>
             <legend>
-                <strong>Game related</strong> Survey
+                Your legend starts here!
             </legend>
-            <p>This awesome survey will go about gaming and hopefully you guys can fill me in with information by
-                answering these questions!</p>
+            <p>First, enter your unique code to resume the survey</p>
 
-            <label>Enter your unique code to resume the survey</label>
-            <input type="text" name="uniqueCode" id="unique-code" placeholder="Unique code example" autocomplete="off">
+            <section id="form-section">
+                <label>Enter unique code here</label>
+                <input type="text" name="uniqueCode" id="unique-code" autocomplete="off">
 
-            <input type="submit" value="Start survey">
+                <input type="submit" value="Start survey">
+            </section>
         </fieldset>
     </form>
 

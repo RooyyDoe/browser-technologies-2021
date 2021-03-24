@@ -16,35 +16,37 @@ module.exports = ( (req, res) => {
             // returns a array of booleans TRUE | FALSE
             const userProgress = proggression(session)
 
-            console.log('test', userProgress[0])
-
             // checks if the personal questions are filled in or not
             // if so go next ↓
             if (!userProgress[0]) {
 				console.log('personal')
 				res.render("personal", {
-					uniqueCode: givenCode
+					uniqueCode: givenCode,
+                    answers: session
 				})
             // checks if the game personal questions are filled in or not    
             // if so go next ↓
 			} else if (!userProgress[1]) {
 				console.log('game-personal')
 				res.render("game_personal", {
-					uniqueCode: givenCode
+					uniqueCode: givenCode,
+                    answers: session
 				})
             // checks if the open questions are filled in or not       
             // if so go next ↓
 			} else if (!userProgress[2]) {
 				console.log('open-questions')
 				res.render("open_questions", {
-					uniqueCode: givenCode
+					uniqueCode: givenCode,
+                    answers: session
 				})
             // checks if the rate game questions are filled in or not    
             // if so go next ↓
             } else if (!userProgress[3]) {
 				console.log('rate-game')
 				res.render("rate_game", {
-					uniqueCode: givenCode
+					uniqueCode: givenCode,
+                    answers: session
 				})
             // if everything is filled in the user sees the end screen
 			} else {

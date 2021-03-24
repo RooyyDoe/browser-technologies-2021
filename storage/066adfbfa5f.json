@@ -1,0 +1,29 @@
+{
+  "code": "066adfbfa5f",
+  "personal": {
+    "name": "Roy",
+    "surname": "Kuijper",
+    "age": "23",
+    "gender": "man",
+    "gamertag": "gamer"
+  },
+  "game_personal": {
+    "favorite-platform": "ga",
+    "average-game-time": "s",
+    "prefer": "multiplayer",
+    "favorite-game-genre": "234",
+    "favorite-game": " wdrw"
+  },
+  "open_questions": {
+    "favorite-game-of-all-time": "",
+    "what-would-you-do": "",
+    "into-video-games": ""
+  },
+  "rate_game": {
+    "game-to-judge": "",
+    "opinion-about-the-game": "",
+    "rate": "",
+    "time-spend": "",
+    "recommend": ""
+  }
+}

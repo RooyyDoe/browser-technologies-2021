@@ -1,6 +1,9 @@
 {{> header}}
 
 <main id="get-code">
+
+    <section id="background-image" title="Gaming survey background image"></section>
+
     <form action="/personal" method="POST">
         <fieldset>
             <legend>Let's start the game survey!</legend>
@@ -14,8 +17,9 @@
             {{/if}}
 
             <section id="alert">
-                <p><strong>Important!</strong> If you close down the survey you can use this unique code to get back
-                    where you were, so don't lose it</p>
+                <img src="/images/warning.svg" alt="Warning: save this code">
+                <p>If you close down the survey you can use this unique code to get back
+                    where you were, so don't lose it!</p>
             </section>
 
             <input type="submit" value="Start now!">

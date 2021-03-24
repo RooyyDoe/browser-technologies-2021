@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname + "/public")))
 // Allowing to send data through URL
 app.use(
 	express.urlencoded({
-		extended: false,
+		extended: true,
 	})
 )
 

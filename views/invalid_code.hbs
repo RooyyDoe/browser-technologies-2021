@@ -2,7 +2,7 @@
 
 <main id="start-page">
 
-    <section id="banner-image" title="Gaming survey banner"></section>
+    <section id="background-image" title="Gaming survey background image"></section>
 
     <form action="/invalid_code" method="POST">
         <fieldset>
@@ -12,12 +12,17 @@
             <p>Look good if you have writen down the code correctly. Other ways you will have to start a new session!
             </p>
 
-            <label>Enter your unique code to go on with the survey: </label>
-            <input type="text" name="uniqueCode" id="unique-code" placeholder="Unique code example" autocomplete="off">
+            <section id="form-section">
+                <label>Enter your unique code to go on with the survey: </label>
+                <input type="text" name="uniqueCode" id="unique-code" placeholder="Unique code example"
+                    autocomplete="off">
 
-            <input type="submit" name="again" value="Try again">
+                <section id="buttons">
+                    <input type="submit" name="again" value="Try again">
 
-            <input type="submit" name="getCode" value="Start new session">
+                    <input type="submit" name="getCode" value="New survey">
+                </section>
+            </section>
         </fieldset>
     </form>
 
