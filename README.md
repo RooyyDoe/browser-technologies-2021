@@ -55,7 +55,7 @@ npm run dev
 
 Server running on **localhost:5000**
 
-**Demo** also will be running live at [Still Loading]()
+**Demo** also will be running live at [Questions for gamers](https://questions-for-gamers.herokuapp.com/)
 
 ## Wireflows
 
@@ -163,7 +163,14 @@ These are the wireflows for the survey, start and end screen. I have annotations
 
 </details>
 
+## Browsers
 
+The browsers I am going to use to test my application on:
+
+- Google Chrome
+- Firefox 
+- Google Chrome android
+- standard browser android
 
 ## Layers ( Progressive Enhancement )
 
