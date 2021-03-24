@@ -1,6 +1,7 @@
 const storage = require('../modules/storage')
 
 module.exports = ( (req, res) => {
+    
 
     givenCode = req.body.uniqueCode
 

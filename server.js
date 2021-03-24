@@ -5,7 +5,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const path = require('path')
 
-const app = express();
+const app = express()
 
 // Creating routes
 const router = {
@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname + "/public")))
 // Allowing to send data through URL
 app.use(
 	express.urlencoded({
-		extended: true,
+		extended: false,
 	})
 )
 

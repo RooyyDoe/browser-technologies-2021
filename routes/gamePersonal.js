@@ -1,8 +1,10 @@
-const express = require('express')
+const { body, validationResult } = require('express-validator');
 
 const storage = require('../modules/storage')
 
 module.exports = ( (req, res) => {
+
+    console.log(body())
 
     givenCode = req.body.uniqueCode
 
