@@ -2,12 +2,12 @@
 
 <main>
 
-    <section id="background-image" title="Gaming survey background image"></section>
+    <figure id="background-image" title="Gaming survey background image"></figure>
 
-    <section id="progression">
+    <article id="progression">
         <label for="progress">Progress: 75%</label>
         <progress id="progress" value="75" max="100"></progress>
-    </section>
+    </article>
 
     <form action="/end" method="POST" id="rate-game">
         <fieldset>
@@ -17,7 +17,7 @@
             <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
             {{/if}}
 
-            <section id="form-section">
+            <article id="form-section">
                 <label for="">Choose a game to judge:</label>
                 {{#if answers.rate_game.game-to-judge }}
                 <input list="game-genres" name="game-to-judge" id="game-to-judge"
@@ -52,35 +52,35 @@
                     {{else}}
                     <input type="radio" name="rate" id="rate-1" value="1" required>
                     {{/ifEqual}}
-                    <label for="recommend-yes">1</label>
+                    <label for="rate-1">1</label>
 
                     {{#ifEqual answers.rate_game.rate "2" }}
                     <input type="radio" name="rate" id="rate-2" value="2" checked required>
                     {{else}}
                     <input type="radio" name="rate" id="rate-2" value="2" required>
                     {{/ifEqual}}
-                    <label for="recommend-no">2</label>
+                    <label for="rate-2">2</label>
 
                     {{#ifEqual answers.rate_game.rate "3" }}
                     <input type="radio" name="rate" id="rate-3" value="3" checked required>
                     {{else}}
                     <input type="radio" name="rate" id="rate-3" value="3" required>
                     {{/ifEqual}}
-                    <label for="recommend-yes">3</label>
+                    <label for="rate-3">3</label>
 
                     {{#ifEqual answers.rate_game.rate "4" }}
                     <input type="radio" name="rate" id="rate-4" value="4" checked required>
                     {{else}}
                     <input type="radio" name="rate" id="rate-4" value="4" required>
                     {{/ifEqual}}
-                    <label for="recommend-no">4</label>
+                    <label for="rate-4">4</label>
 
                     {{#ifEqual answers.rate_game.rate "5" }}
                     <input type="radio" name="rate" id="rate-5" value="5" checked required>
                     {{else}}
                     <input type="radio" name="rate" id="rate-5" value="5" required>
                     {{/ifEqual}}
-                    <label for="recommend-no">5</label>
+                    <label for="rate-5">5</label>
 
                 </fieldset>
 
@@ -112,12 +112,12 @@
 
                 </fieldset>
 
-                <section id="buttons">
+                <article id="buttons">
                     <a href="/open_questions_back/{{uniqueCode}}">Previous</a>
 
                     <input type="submit" value="Next">
-                </section>
-            </section>
+                </article>
+            </article>
 
         </fieldset>
     </form>

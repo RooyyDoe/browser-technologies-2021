@@ -1,0 +1,29 @@
+{
+  "code": "6481cf18094",
+  "personal": {
+    "name": "Roy",
+    "surname": "Kuijper",
+    "age": "23",
+    "gender": "man",
+    "gamertag": "gamer"
+  },
+  "game_personal": {
+    "favorite-platform": "ps4",
+    "average-game-time": "2",
+    "prefer": "multiplayer",
+    "favorite-game-genre": "Puzzlers and party games",
+    "favorite-game": "gamer"
+  },
+  "open_questions": {
+    "favorite-game-of-all-time": "Games",
+    "what-would-you-do": "games",
+    "into-video-games": "games"
+  },
+  "rate_game": {
+    "game-to-judge": "",
+    "opinion-about-the-game": "",
+    "rate": "",
+    "time-spend": "",
+    "recommend": ""
+  }
+}

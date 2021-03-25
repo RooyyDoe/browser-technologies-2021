@@ -2,12 +2,12 @@
 
 <main>
 
-    <section id="background-image" title="Gaming survey background image"></section>
+    <figure id="background-image" title="Gaming survey background image"></figure>
 
-    <section id="progression">
+    <article id="progression">
         <label for="progress">You just started the survey</label>
         <progress id="progress" value="0" max="100"></progress>
-    </section>
+    </article>
 
 
     <form action="/game_personal" method="POST" id="personal">
@@ -18,7 +18,7 @@
             <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
             {{/if}}
 
-            <section id="form-section">
+            <article id="form-section">
                 <label for="name">Your name:</label>
                 {{#if answers.personal.name }}
                 <input type="text" name="name" id="name" value="{{answers.personal.name}}" autocomplete="off" autofocus
@@ -73,12 +73,12 @@
                     placeholder="xXsupergamerXx" required>
                 {{/if}}
 
-                <section id="buttons">
+                <article id="buttons">
                     <a href="/start"> Get me back </a>
 
-                    <input type="submit" id="next-button" value="Next">
-                </section>
-            </section>
+                    <input type="submit" value="Next">
+                </article>
+            </article>
 
         </fieldset>
     </form>

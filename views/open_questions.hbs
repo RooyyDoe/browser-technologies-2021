@@ -2,12 +2,12 @@
 
 <main>
 
-    <section id="background-image" title="Gaming survey background image"></section>
+    <figure id="background-image" title="Gaming survey background image"></figure>
 
-    <section id="progression">
+    <article id="progression">
         <label for="progress">Progress: 50%</label>
         <progress id="progress" value="50" max="100"></progress>
-    </section>
+    </article>
 
     <form action="/rate_game" method="POST" id="open-questions">
         <fieldset>
@@ -17,7 +17,7 @@
             <input type="hidden" name="uniqueCode" value="{{uniqueCode}}">
             {{/if}}
 
-            <section id="form-section">
+            <article id="form-section">
                 <label for="favorite-game-of-all-time">What's your favorite game of all time? and why?</label>
                 <textarea name="favorite-game-of-all-time" id="favorite-game-of-all-time" cols="50" rows="5"
                     placeholder="League of legends.." autofocus
@@ -32,12 +32,12 @@
                 <textarea name="into-video-games" id="into-video-games" cols="50" placeholder="My friends.." rows="5"
                     required>{{#if answers.open_questions.into-video-games }}{{answers.open_questions.into-video-games}}{{/if}}</textarea>
 
-                <section id="buttons">
+                <article id="buttons">
                     <a href="/game_personal_back/{{uniqueCode}}">Previous</a>
 
                     <input type="submit" value="Next">
-                </section>
-            </section>
+                </article>
+            </article>
 
         </fieldset>
     </form>

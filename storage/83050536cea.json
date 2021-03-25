@@ -1,0 +1,29 @@
+{
+  "code": "83050536cea",
+  "personal": {
+    "name": "Roy",
+    "surname": "Kuijper",
+    "age": "23",
+    "gender": "woman",
+    "gamertag": "gamer"
+  },
+  "game_personal": {
+    "favorite-platform": "",
+    "average-game-time": "",
+    "prefer": "",
+    "favorite-game-genre": "",
+    "favorite-game": ""
+  },
+  "open_questions": {
+    "favorite-game-of-all-time": "",
+    "what-would-you-do": "",
+    "into-video-games": ""
+  },
+  "rate_game": {
+    "game-to-judge": "",
+    "opinion-about-the-game": "",
+    "rate": "",
+    "time-spend": "",
+    "recommend": ""
+  }
+}

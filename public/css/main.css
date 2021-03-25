@@ -124,9 +124,11 @@ legend {
 label,
 #radio-button > legend {
   font-family: "BeaufortLOL-Light", Times, serif;
+  font-weight: lighter;
   text-transform: none;
   color: #937341;
   text-align: start;
+  margin-top: 1em;
   padding: 0.5em 0;
   font-size: 1em;
   align-self: start;
@@ -135,7 +137,7 @@ label,
 
 input[type="text"] {
   font-family: "BeaufortLOL-Light", Times, serif;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #c4b998;
   border: none;
   margin-bottom: 0.5em;
@@ -146,18 +148,24 @@ input[type="text"] {
 /* radio buttons */
 
 input[type="radio"] {
+  position: absolute;
   opacity: 0;
 }
 
 input[type="radio"] + label {
   display: inline-block;
   border: 1px solid #937341;
-  padding: 1em 2em;
+  float: left;
+  padding: 0.5em 0.6em;
   margin: 0.5em;
-  border-radius: 0.3em;
 }
 
 input:checked + label {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+input[type="radio"]:focus + label {
   color: #fff;
   border: 1px solid #fff;
 }
@@ -166,7 +174,7 @@ input:checked + label {
 
 #buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
 }
 
@@ -176,17 +184,15 @@ a {
 
 input[type="submit"],
 a {
-  padding: 1.2em;
-  margin: 1em;
-  min-width: 240px;
-  max-width: 100%;
+  padding: 1em;
+  margin: 2em 1em;
   cursor: pointer;
 }
 
 input[type="submit"],
 a {
   font-family: "BeaufortLOL-Light", Times, serif;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #937341;
@@ -206,6 +212,35 @@ a {
 input[type="submit"]:hover {
   color: #fff;
   transition: 1s;
+}
+
+#big-button {
+  font-size: 1.2rem;
+  padding: 1.5em;
+}
+
+/* Dropdown input */
+
+input[name="favorite-game-genre"],
+input[name="game-to-judge"] {
+  font-family: "BeaufortLOL-Light", Times, serif;
+  font-size: 0.8rem;
+  border: 1px solid #937341;
+  color: #c4b998;
+  background-color: transparent;
+  padding: 1em;
+}
+
+/* textarea input */
+
+textarea {
+  font-family: "BeaufortLOL-Light", Times, serif;
+  font-size: 0.8rem;
+  border: 1px solid #937341;
+  color: #c4b998;
+  background-color: transparent;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
 /* background image */
@@ -246,10 +281,33 @@ input[type="submit"]:hover {
   opacity: 0;
 }
 
+/* end screen */
+
+#end-screen {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+#end-screen > img {
+  width: 3em;
+  height: 3em;
+  border: 2px solid #937341;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+#end-screen > p {
+  font-family: "BeaufortLOL-Light", Times, serif;
+  font-size: 2rem;
+  padding-bottom: 1em;
+}
+
 /* alert */
 
 #alert {
   display: flex;
+  width: 75%;
   border: 2px solid #be1e37;
   padding: 0.1em 1em;
 }
