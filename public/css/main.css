@@ -108,6 +108,10 @@ fieldset {
 }
 
 legend {
+  text-align: center;
+}
+
+legend > h1 {
   font-family: "BeaufortforLOL-bold", Times, serif;
   font-size: 5.5vw;
   font-weight: bold;
@@ -298,6 +302,10 @@ textarea {
   text-align: center;
   width: 80%;
   margin: auto;
+}
+
+#end-screen > h1 {
+  margin-bottom: 1.5em;
 }
 
 #end-screen > img {
