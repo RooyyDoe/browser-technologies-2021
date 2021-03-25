@@ -1,6 +1,6 @@
 const storage = require('../modules/storage')
 
-module.exports = ( (req, res) => {
+module.exports = (req, res) => {
 
     givenCode = req.body.uniqueCode
 
@@ -17,4 +17,4 @@ module.exports = ( (req, res) => {
         uniqueCode: givenCode,
         answers: session
     })
-})
+}

@@ -1,10 +1,12 @@
 const storage = require('../modules/storage')
 const proggression = require('../modules/progression')
 
-module.exports = ( (req, res) => {
+module.exports = (req, res) => {
     // console.log(req, storage)
     // Key that is passed through the start screen
     givenCode = req.body.uniqueCode
+
+    console.log(givenCode)
 
     // Looks if the code isn't empty and the file exists. If so the session will exist
     // else it will render the get_code page where users will get a unique code.
@@ -61,4 +63,4 @@ module.exports = ( (req, res) => {
         res.redirect('/get_code')
     }
     
-})
+}

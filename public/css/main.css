@@ -48,6 +48,32 @@ header > img {
   bottom: 85%;
 }
 
+/* uniqueCodeList */
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin: auto;
+  width: 100%;
+  list-style-type: none;
+}
+
+#unique-codes-l-items {
+  font-family: "BeaufortforLOL", Times, serif;
+  background-color: transparent;
+  color: #c4b998;
+  border: 1px solid #937341;
+  padding: 0.5em 0.6em;
+  margin: 0.5em;
+}
+
+#available-codes {
+  font-family: "BeaufortforLOL", Times, serif;
+  color: #937341;
+  text-align: left;
+}
+
 /* progression bar */
 
 #progression {
@@ -169,7 +195,6 @@ input[type="radio"] {
 input[type="radio"] + label {
   display: inline-block;
   border: 1px solid #937341;
-  float: left;
   padding: 0.5em 0.6em;
   margin: 0.5em;
 }
