@@ -2,12 +2,18 @@
 
 For this assignment I will design an interactive application. I need to make sure that all users, with all browsers, can see, hear and / or feel at least the core functionality in every context. The purpose of this assignment is to learn how to make an online online interactive appliaction using `Progressive Enhancement` and `Feature Detection` so that the application will always work.
 
-## Case
+## Introduction
+
+### case
 
 I want to be able to fill out a survey where the questions are aimed at gamers, with different answer options. If I don't finish the survey, I want to pick up where I left off later.
 
+### Working of my application
+
+When a user opens the application, he / she is given the option to start a new survey or to continue where he / she left off. Each survey will have a unique code. This code allows the user to get back where he / she left off in the survey. Every time the user goes to the next section the data will be saved to a JSON file and can be extracted by making use of the unique code. The user needs to keep a good hold on the unique code otherways he / she will not be able to return where they left off.
+
 ## Final Product
-**Image loading...**
+<img width="1440" alt="Schermafbeelding 2021-03-26 om 16 33 25" src="https://user-images.githubusercontent.com/40355914/112655933-2f2e7100-8e51-11eb-8569-9c9969a82758.png">
 
 ## Table of contents
 
@@ -19,13 +25,13 @@ I want to be able to fill out a survey where the questions are aimed at gamers, 
 
 ## Features
 
-- [ ] [Localstorage](https://developer.mozilla.org/en-US/docs/Web/API/Storage_API)
+- [x] [Localstorage](https://developer.mozilla.org/en-US/docs/Web/API/Storage_API)
 - [ ] Feature Detection
-- [ ] Progressive Enhancement
-- [ ] Form Validation
+- [x] Progressive Enhancement
+- [x] Form Validation
 - [ ] [Clipboard](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
-- [ ] Responsive
-- [ ] @support
+- [x] Responsive
+- [x] @support
 
 ## Install
 
