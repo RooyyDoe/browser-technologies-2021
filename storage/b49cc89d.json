@@ -1,0 +1,29 @@
+{
+  "code": "b49cc89d",
+  "personal": {
+    "name": "Roy",
+    "surname": "Kuijper",
+    "age": "23",
+    "gender": "man",
+    "gamertag": "gamer"
+  },
+  "game_personal": {
+    "favorite-platform": "ps3",
+    "average-game-time": "2 hours",
+    "prefer": "multiplayer",
+    "favorite-game-genre": "Simulation and sports",
+    "favorite-game": "LOL"
+  },
+  "open_questions": {
+    "favorite-game-of-all-time": "Gaming",
+    "what-would-you-do": "Gaming",
+    "into-video-games": "Gaming"
+  },
+  "rate_game": {
+    "game-to-judge": "",
+    "opinion-about-the-game": "",
+    "rate": "",
+    "time-spend": "",
+    "recommend": ""
+  }
+}
