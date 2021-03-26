@@ -182,9 +182,35 @@ The browsers I am going to use to test my application on:
 
 I want to create a survey for people that have interests in games. The survey will exist out of four different pages where the user will be answering some questions I've come up with. I will start to make the functional/reliable layer first. this will mainly exists out of plain HTML. When I have this working i'll go on with the usable and pleasurable layers. 
 
-## Feature Detection
+## CSS / JS support
+
+### CSS support
+
+### JS support
+
+## What happens if? 
+
+### Turn off images
+
+### Custom font
+
+### Muis / Trackpad
+
+### Breedband internet
+
+### Javascript
+
+### Cookies
+
+### localStorage
+
+### Screen reader
 
 ## Conclusion
+
+### My take on Progressive Enhancement
+
+### My take on Feature Detection
 
 ### Opdracht 1 🛹 NPM install Progressive enhancement
 
