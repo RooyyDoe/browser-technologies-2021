@@ -35,8 +35,10 @@ module.exports = (req, res) => {
         },
     }
 
+    console.log(__dirname)
+
     // takes the object and adds it to a json file in the storage map with the unique code as name
-    storage.saveNewData(newObj, `/storage/${givenCode}.json`)
+    storage.saveNewData(newObj, `./storage/${givenCode}.json`)
 
     res.render('personal', { 
         uniqueCode: givenCode,
