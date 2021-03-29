@@ -13,14 +13,14 @@ module.exports = (req, res) => {
             "surname": "",
             "age": "",
             "gender": "",
-            "gamertag": "",
+            "favorite-game": "",
         },
         "game_personal": {
             "favorite-platform": "",
             "average-game-time": "",
             "prefer": "",
             "favorite-game-genre": "",
-            "favorite-game": "",
+            "gamertag": "",
         },
         "open_questions": {
             "favorite-game-of-all-time": "",
@@ -28,7 +28,6 @@ module.exports = (req, res) => {
             "into-video-games": "",
         },
         "rate_game": {
-            "game-to-judge": "",
             "opinion-about-the-game": "",
             "rate": "",
             "time-spend": "",

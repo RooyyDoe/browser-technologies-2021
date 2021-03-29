@@ -9,30 +9,36 @@
         <progress id="progress" value="50" max="100"></progress>
     </article>
 
-    <form action="/rate_game" method="POST" id="open-questions">
+    <form action="/rate_game" method="POST" id="open_questions">
         <fieldset>
-            <legend>
+            <legend id="head-legend">
                 <h1>Your opinion is important</h1>
             </legend>
 
             {{#if uniqueCode}}
-            <input type="hidden" name="uniqueCode" value="{{uniqueCode}}">
+            <input type="hidden" name="uniqueCode" id="unique-code" value="{{uniqueCode}}">
             {{/if}}
 
             <article id="form-section">
-                <label for="favorite-game-of-all-time">What's your favorite game of all time? and why?</label>
-                <textarea name="favorite-game-of-all-time" id="favorite-game-of-all-time" cols="50" rows="5"
-                    placeholder="League of legends.." autofocus
-                    required>{{#if answers.open_questions.favorite-game-of-all-time }}{{answers.open_questions.favorite-game-of-all-time}}{{/if}}</textarea>
+                <label for="favorite-game-of-all-time">What's your favorite game of all time? and why?
+                    <textarea name="favorite-game-of-all-time" id="favorite-game-of-all-time" cols="50" rows="5"
+                        placeholder="League of legends.." autofocus
+                        required>{{#if answers.open_questions.favorite-game-of-all-time }}{{answers.open_questions.favorite-game-of-all-time}}{{/if}}</textarea>
+                </label>
 
-                <label for="what-would-you-do">if video games didn't exist anymore, what would you do?</label>
-                <textarea name="what-would-you-do" id="what-would-you-do" cols="50" placeholder="I would probably cry.."
-                    rows="5"
-                    required>{{#if answers.open_questions.what-would-you-do }}{{answers.open_questions.what-would-you-do}}{{/if}}</textarea>
+                <label for="what-would-you-do">if video games didn't exist anymore, what would you do?
+                    <textarea name="what-would-you-do" id="what-would-you-do" cols="50"
+                        placeholder="I would probably cry.." rows="5"
+                        required>{{#if answers.open_questions.what-would-you-do }}{{answers.open_questions.what-would-you-do}}{{/if}}</textarea>
 
-                <label for="into-video-games">What or who got you into video games in the first place?</label>
-                <textarea name="into-video-games" id="into-video-games" cols="50" placeholder="My friends.." rows="5"
-                    required>{{#if answers.open_questions.into-video-games }}{{answers.open_questions.into-video-games}}{{/if}}</textarea>
+                </label>
+
+                <label for="into-video-games">What or who got you into video games in the first place?
+                    <textarea name="into-video-games" id="into-video-games" cols="50" placeholder="My friends.."
+                        rows="5"
+                        required>{{#if answers.open_questions.into-video-games }}{{answers.open_questions.into-video-games}}{{/if}}</textarea>
+
+                </label>
 
                 <article id="buttons">
                     <a href="/game_personal_back/{{uniqueCode}}" tabindex="0">Previous</a>
@@ -44,3 +50,5 @@
         </fieldset>
     </form>
 </main>
+
+<script src="/js/validation.js"></script>

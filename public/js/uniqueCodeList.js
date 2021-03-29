@@ -70,7 +70,7 @@ if (storageAvailable()) {
         });
     }
 } else {
-
+    // Storage is sadly not available :(
 }
 
 

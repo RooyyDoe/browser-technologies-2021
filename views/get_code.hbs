@@ -6,12 +6,12 @@
 
     <form action="/personal" method="POST">
         <fieldset>
-            <legend>
+            <legend id="head-legend">
                 <h1>Let's start the game survey!</h1>
             </legend>
 
             {{#if uniqueCode}}
-            <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
+            <input name="uniqueCode" type="hidden" id="unique-code" value="{{uniqueCode}}">
 
             <p>Your unique code will be:</p>
 
@@ -20,8 +20,7 @@
 
             <article id="alert">
                 <img src="/images/warning.svg" alt="warning message: save the code by cmd + c" width="0">
-                <p>If you close down the survey you can use this unique code to get back
-                    where you were, so don't lose it!</p>
+                <p>Don't forget to copy your unique code, this will be the only way back!</p>
             </article>
 
             <input type="submit" id="big-button" value="Start now!">

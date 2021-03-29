@@ -6,16 +6,21 @@
 
     <form action="/indentification" method="POST" id="start">
         <fieldset>
-            <legend>
+            <legend id="head-legend">
                 <h1>Your legend starts here!</h1>
             </legend>
-            <p>First, enter your unique code to resume the survey</p>
+            <p>First, click on the button to start your survey</p>
 
             <article id="form-section">
-                <label>Enter unique code here</label>
-                <input type="text" name="uniqueCode" id="unique-code" autocomplete="off">
-
                 <input type="submit" id="big-button" value="Start survey">
+
+                <label id="uniqueCodeLabel">Or enter unique code here</label>
+                <article id="resume-section">
+                    <input type="text" name="uniqueCode" id="unique-code" autocomplete="off">
+
+                    <input type="submit" id="small-button" value="Resume survey">
+                </article>
+
             </article>
         </fieldset>
     </form>

@@ -12,41 +12,48 @@
 
     <form action="/game_personal" method="POST" id="personal">
         <fieldset>
-            <legend>
+            <legend id="head-legend">
                 <h1>Let's get personal</h1>
             </legend>
 
+
             {{#if uniqueCode}}
-            <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
+            <input name="uniqueCode" type="hidden" id="unique-code" value="{{uniqueCode}}">
             {{/if}}
 
             <article id="form-section">
-                <label for="name">Your name:</label>
-                {{#if answers.personal.name }}
-                <input type="text" name="name" id="name" value="{{answers.personal.name}}" autocomplete="off" autofocus
-                    required>
-                {{else}}
-                <input type="text" name="name" id="name" autocomplete="off" placeholder="James" autofocus required>
-                {{/if}}
+                <label for="name" id="label">Your name:
+                    {{#if answers.personal.name }}
+                    <input type="text" name="name" value="{{answers.personal.name}}" autocomplete="off" required>
+                    <span id="error-message"></span>
+                    {{else}}
+                    <input type="text" name="name" autocomplete="off" placeholder="James" required>
+                    <span id="error-message"></span>
+                    {{/if}}
+                </label>
 
 
-                <label for="surname">Your surname:</label>
-                {{#if answers.personal.surname }}
-                <input type="text" name="surname" id="surname" value="{{answers.personal.surname}}" autocomplete="off"
-                    required>
-                {{else}}
-                <input type="text" name="surname" id="surname" value="" autocomplete="off" placeholder="Bond" required>
-                {{/if}}
+                <label for="surname" id="label">Your surname:
+                    {{#if answers.personal.surname }}
+                    <input type="text" name="surname" id="surname" value="{{answers.personal.surname}}"
+                        autocomplete="off" required>
+                    {{else}}
+                    <input type="text" name="surname" id="surname" value="" autocomplete="off" placeholder="Bond"
+                        required>
+                    {{/if}}
+                </label>
 
 
-                <label for="age">Your age:</label>
-                {{#if answers.personal.age }}
-                <input type="text" name="age" id="age" value="{{answers.personal.age}}" inputmode="numeric"
-                    autocomplete="off" pattern="[0-9]+" required>
-                {{else}}
-                <input type="text" name="age" id="age" value="" inputmode="numeric" autocomplete="off" pattern="[0-9]+"
-                    placeholder="25" required>
-                {{/if}}
+                <label for="age" id="label">Your age:
+                    {{#if answers.personal.age }}
+                    <input type="text" name="age" id="age" value="{{answers.personal.age}}" inputmode="numeric"
+                        autocomplete="off" pattern="[0-9]+" required>
+                    {{else}}
+                    <input type="text" name="age" id="age" value="" inputmode="numeric" autocomplete="off"
+                        pattern="[0-9]+" placeholder="25" required>
+                    {{/if}}
+                </label>
+
 
                 <fieldset id="radio-button">
                     <legend>Your gender:</legend>
@@ -66,14 +73,16 @@
 
                 </fieldset>
 
-                <label for="gamertag">Your gamertag:</label>
-                {{#if answers.personal.gamertag }}
-                <input type="text" name="gamertag" id="gamertag" value="{{answers.personal.gamertag}}"
-                    autocomplete="off" required>
-                {{else}}
-                <input type="text" name="gamertag" id="gamertag" value="" autocomplete="off"
-                    placeholder="xXsupergamerXx" required>
-                {{/if}}
+                <label for="favorite-game">What is your favorite game?
+                    {{#if answers.personal.favorite-game }}
+                    <input type="text" name="favorite-game" id="favorite-game"
+                        value="{{answers.personal.favorite-game}}" autocomplete="off" required>
+                    {{else}}
+                    <input type="text" name="favorite-game" id="favorite-game" placeholder="League of Legends.."
+                        autocomplete="off" required>
+                    {{/if}}
+                </label>
+
 
                 <div id="buttons">
                     <a href="/start"> Get me back </a>
@@ -85,3 +94,5 @@
         </fieldset>
     </form>
 </main>
+
+<script src="/js/validation.js"></script>

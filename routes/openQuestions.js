@@ -2,10 +2,7 @@ const storage = require('../modules/storage')
 
 module.exports = (req, res) => {
     
-
     givenCode = req.body.uniqueCode
-
-    console.log(givenCode)
 
     const session = storage.getExistingData(`./storage/${givenCode}.json`)
 

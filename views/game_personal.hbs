@@ -10,34 +10,38 @@
         </progress>
     </article>
 
-    <form action="/open_questions" method="POST" id="game-personal">
+    <form action="/open_questions" method="POST" id="game_personal">
         <fieldset>
-            <legend>
+            <legend id="head-legend">
                 <h1>Just about gaming</h1>
             </legend>
 
             {{#if uniqueCode}}
-            <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
+            <input name="uniqueCode" type="hidden" id="unique-code" value="{{uniqueCode}}">
             {{/if}}
 
             <article id="form-section">
-                <label for="favorite-platform">What is your favorite platform?</label>
-                {{#if answers.game_personal.favorite-platform }}
-                <input type="text" name="favorite-platform" id="favorite-platform"
-                    value="{{answers.game_personal.favorite-platform}}" autocomplete="off" autofocus required>
-                {{else }}
-                <input type="text" name="favorite-platform" id="favorite-platform" placeholder="Xbox one.."
-                    autocomplete="off" autofocus required>
-                {{/if}}
+                <label for="favorite-platform">What is your favorite platform?
+                    {{#if answers.game-personal.favorite-platform }}
+                    <input type="text" name="favorite-platform" id="favorite-platform"
+                        value="{{answers.game_personal.favorite-platform}}" autocomplete="off" autofocus required>
+                    {{else }}
+                    <input type="text" name="favorite-platform" id="favorite-platform" placeholder="Xbox one.."
+                        autocomplete="off" autofocus required>
+                    {{/if}}
+                </label>
 
-                <label for="average-game-time">What is your average game time in a day?</label>
-                {{#if answers.game_personal.average-game-time }}
-                <input type="text" name="average-game-time" id="average-game-time"
-                    value="{{answers.game_personal.average-game-time}}" autocomplete="off" required>
-                {{else}}
-                <input type="text" name="average-game-time" id="average-game-time" placeholder="2 hours.."
-                    autocomplete="off" required>
-                {{/if}}
+
+                <label for="average-game-time">What is your average game time in a day?
+                    {{#if answers.game_personal.average-game-time }}
+                    <input type="text" name="average-game-time" id="average-game-time"
+                        value="{{answers.game_personal.average-game-time}}" autocomplete="off" required>
+                    {{else}}
+                    <input type="text" name="average-game-time" id="average-game-time" placeholder="2 hours.."
+                        autocomplete="off" required>
+                    {{/if}}
+                </label>
+
 
                 <fieldset id="radio-button">
                     <legend>Do you prefer multiplayer games or to go solo?</legend>
@@ -58,35 +62,40 @@
 
                 </fieldset>
 
-                <label for="favorite-game-genre">What is your favorite game genre?</label>
-                {{#if answers.game_personal.favorite-game-genre }}
-                <input list="game-genres" name="favorite-game-genre" id="favorite-game-genre"
-                    value="{{answers.game_personal.favorite-game-genre}}" autocomplete="off" required>
-                {{else}}
-                <input list="game-genres" name="favorite-game-genre" id="favorite-game-genre" placeholder="Shooter.."
-                    autocomplete="off" required>
-                {{/if}}
+                <label for="favorite-game-genre">What is your favorite game genre?
+                    {{#if answers.game_personal.favorite-game-genre }}
+                    <input list="game-genres" name="favorite-game-genre" id="favorite-game-genre"
+                        value="{{answers.game_personal.favorite-game-genre}}" autocomplete="off" required>
+                    {{else}}
+                    <input list="game-genres" name="favorite-game-genre" id="favorite-game-genre"
+                        placeholder="Shooter.." autocomplete="off" required>
+                    {{/if}}
+                </label>
+
 
                 <datalist id="game-genres">
                     <option value="Sandbox"></option>
-                    <option value="Real-time strategy"></option>
+                    <option value="Real time strategy"></option>
                     <option value="Shooters"></option>
                     <option value="Multiplayer online battle arena"></option>
                     <option value="Simulation and sports"></option>
                     <option value="Puzzlers and party games"></option>
-                    <option value="Action-adventure"></option>
+                    <option value="Action"></option>
+                    <option value="Adventure"></option>
                     <option value="Survival and horror"></option>
                     <option value="Platformer"></option>
                 </datalist>
 
-                <label for="favorite-game">What is your favorite game?</label>
-                {{#if answers.game_personal.favorite-game }}
-                <input type="text" name="favorite-game" id="favorite-game"
-                    value="{{answers.game_personal.favorite-game}}" autocomplete="off" required>
-                {{else}}
-                <input type="text" name="favorite-game" id="favorite-game" placeholder="League of Legends.."
-                    autocomplete="off" required>
-                {{/if}}
+                <label for="gamertag">Your gamertag:
+                    {{#if answers.game_personal.gamertag }}
+                    <input type="text" name="gamertag" id="gamertag" value="{{answers.game_personal.gamertag}}"
+                        autocomplete="off" required>
+                    {{else}}
+                    <input type="text" name="gamertag" id="gamertag" value="" autocomplete="off"
+                        placeholder="xXsupergamerXx" required>
+                    {{/if}}
+                </label>
+
 
                 <article id="buttons">
                     <a href="/personal_back/{{uniqueCode}}" tabindex="0">Previous</a>
@@ -98,3 +107,5 @@
         </fieldset>
     </form>
 </main>
+
+<script src="/js/validation.js"></script>

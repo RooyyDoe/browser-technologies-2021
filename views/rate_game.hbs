@@ -9,42 +9,24 @@
         <progress id="progress" value="75" max="100"></progress>
     </article>
 
-    <form action="/end" method="POST" id="rate-game">
+    <form action="/end" method="POST" id="rate_game">
         <fieldset>
-            <legend>
-                <h1>Rate your game</h1>
+            <legend id="head-legend">
+                <h1>Rate your favorite game</h1>
             </legend>
 
             {{#if uniqueCode}}
-            <input name="uniqueCode" type="hidden" value="{{uniqueCode}}">
+            <input name="uniqueCode" type="hidden" id="unique-code" value="{{uniqueCode}}">
             {{/if}}
 
             <article id="form-section">
-                <label for="">Choose a game to judge:</label>
-                {{#if answers.rate_game.game-to-judge }}
-                <input list="game-genres" name="game-to-judge" id="game-to-judge"
-                    value="{{answers.rate_game.game-to-judge}}" autocomplete="off" autofocus required>
-                {{else}}
-                <input list="game-genres" name="game-to-judge" id="game-to-judge" autocomplete="off"
-                    placeholder="League of Legends" autofocus required>
-                {{/if}}
 
-                <datalist id="game-genres">
-                    <option value="Animal Crossing: New Horizons"></option>
-                    <option value="Assassin’s Creed Valhalla"></option>
-                    <option value="Bleeding Edge"></option>
-                    <option value="Fortnite"></option>
-                    <option value="Cyberpunk 2077"></option>
-                    <option value="Dying Light 2"></option>
-                    <option value="Final Fantasy 7 Remake"></option>
-                    <option value="Ghost of Tsushima"></option>
-                    <option value="League of Legends"></option>
-                </datalist>
+                <label for="opinion-about-the-game">What is your opinion about this game:
+                    <textarea name="opinion-about-the-game" id="opinion-about-the-game" cols="50" rows="5"
+                        placeholder="I think this game is awesome.."
+                        required>{{#if answers.rate_game.opinion-about-the-game }}{{answers.rate_game.opinion-about-the-game}}{{/if}}</textarea>
+                </label>
 
-                <label for="opinion-about-the-game">What is your opinion about this game:</label>
-                <textarea name="opinion-about-the-game" id="opinion-about-the-game" cols="50" rows="5"
-                    placeholder="I think this game is awesome.."
-                    required>{{#if answers.rate_game.opinion-about-the-game }}{{answers.rate_game.opinion-about-the-game}}{{/if}}</textarea>
 
                 <fieldset id="radio-button">
                     <legend>Give the game a number (1 - 5):</legend>
@@ -86,14 +68,16 @@
 
                 </fieldset>
 
-                <label for="time-spend">How much time have you spend playing this game:</label>
-                {{#if answers.rate_game.time-spend }}
-                <input type="text" name="time-spend" id="time-spend" value="{{answers.rate_game.time-spend}}"
-                    inputmode="numeric" autocomplete="off" pattern="[0-9]+" required>
-                {{else}}
-                <input type="text" name="time-spend" id="time-spend" inputmode="numeric" autocomplete="off"
-                    pattern="[0-9]+" placeholder="100" required>
-                {{/if}}
+                <label for="time-spend">How much time have you spend playing this game:
+                    {{#if answers.rate_game.time-spend }}
+                    <input type="text" name="time-spend" id="time-spend" value="{{answers.rate_game.time-spend}}"
+                        inputmode="numeric" autocomplete="off" pattern="[0-9]+" required>
+                    {{else}}
+                    <input type="text" name="time-spend" id="time-spend" inputmode="numeric" autocomplete="off"
+                        pattern="[0-9]+" placeholder="100" required>
+                    {{/if}}
+                </label>
+
 
                 <fieldset id="radio-button">
                     <legend>Would you recommend this game:</legend>
@@ -124,3 +108,5 @@
         </fieldset>
     </form>
 </main>
+
+<script src="/js/validation.js"></script>

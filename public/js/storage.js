@@ -41,14 +41,14 @@ if (storageAvailable()) {
             "surname": "",
             "age": "",
             "gender": "",
-            "gamertag": "",
+            "favorite-game": "",
         },
         "game_personal": {
             "favorite-platform": "",
             "average-game-time": "",
             "prefer": "",
             "favorite-game-genre": "",
-            "favorite-game": "",
+            "gamertag": "",
         },
         "open_questions": {
             "favorite-game-of-all-time": "",
@@ -56,7 +56,6 @@ if (storageAvailable()) {
             "into-video-games": "",
         },
         "rate_game": {
-            "game-to-judge": "",
             "opinion-about-the-game": "",
             "rate": "",
             "time-spend": "",
