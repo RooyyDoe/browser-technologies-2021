@@ -35,31 +35,31 @@ if (storageAvailable()) {
     const uniqueCode = document.getElementById('get-unique-code').value
     // Making empty object linked to the uniqueCode for localStorage
     const newSurvey = {
-        "code": uniqueCode,
-        "personal": {
-            "name": "",
-            "surname": "",
-            "age": "",
-            "gender": "",
-            "favorite-game": "",
+        code: uniqueCode,
+        personal: {
+            name: "",
+            surname: "",
+            age: "",
+            gender: "",
+            favoriteGame: "",
         },
         "game_personal": {
-            "favorite-platform": "",
-            "average-game-time": "",
-            "prefer": "",
-            "favorite-game-genre": "",
-            "gamertag": "",
+            favoritePlatform: "",
+            averageGameTime: "",
+            prefer: "",
+            favoriteGameGenre: "",
+            gamertag: "",
         },
         "open_questions": {
-            "favorite-game-of-all-time": "",
-            "what-would-you-do": "",
-            "into-video-games": "",
+            favoriteGameOfAllTime: "",
+            whatWouldYouDo: "",
+            intoVideoGames: "",
         },
         "rate_game": {
-            "opinion-about-the-game": "",
-            "rate": "",
-            "time-spend": "",
-            "recommend": "",
+            opinionAboutTheGame: "",
+            rate: "",
+            timeSpend: "",
+            recommend: "",
         },
     }
 

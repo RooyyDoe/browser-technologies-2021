@@ -73,12 +73,12 @@
 
                 </fieldset>
 
-                <label for="favorite-game">What is your favorite game?
-                    {{#if answers.personal.favorite-game }}
-                    <input type="text" name="favorite-game" id="favorite-game"
-                        value="{{answers.personal.favorite-game}}" autocomplete="off" required>
+                <label for="favoriteGame">What is your favorite game?
+                    {{#if answers.personal.favoriteGame }}
+                    <input type="text" name="favoriteGame" id="favorite-game" value="{{answers.personal.favoriteGame}}"
+                        autocomplete="off" required>
                     {{else}}
-                    <input type="text" name="favorite-game" id="favorite-game" placeholder="League of Legends.."
+                    <input type="text" name="favoriteGame" id="favorite-game" placeholder="League of Legends.."
                         autocomplete="off" required>
                     {{/if}}
                 </label>

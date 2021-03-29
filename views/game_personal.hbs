@@ -21,23 +21,23 @@
             {{/if}}
 
             <article id="form-section">
-                <label for="favorite-platform">What is your favorite platform?
-                    {{#if answers.game-personal.favorite-platform }}
-                    <input type="text" name="favorite-platform" id="favorite-platform"
-                        value="{{answers.game_personal.favorite-platform}}" autocomplete="off" autofocus required>
+                <label for="favoritePlatform">What is your favorite platform?
+                    {{#if answers.game_personal.favoritePlatform }}
+                    <input type="text" name="favoritePlatform" id="favorite-platform"
+                        value="{{answers.game_personal.favoritePlatform}}" autocomplete="off" autofocus required>
                     {{else }}
-                    <input type="text" name="favorite-platform" id="favorite-platform" placeholder="Xbox one.."
+                    <input type="text" name="favoritePlatform" id="favorite-platform" placeholder="Xbox one.."
                         autocomplete="off" autofocus required>
                     {{/if}}
                 </label>
 
 
-                <label for="average-game-time">What is your average game time in a day?
-                    {{#if answers.game_personal.average-game-time }}
-                    <input type="text" name="average-game-time" id="average-game-time"
-                        value="{{answers.game_personal.average-game-time}}" autocomplete="off" required>
+                <label for="averageGameTime">What is your average game time in a day?
+                    {{#if answers.game_personal.averageGameTime }}
+                    <input type="text" name="averageGameTime" id="average-game-time"
+                        value="{{answers.game_personal.averageGameTime}}" autocomplete="off" required>
                     {{else}}
-                    <input type="text" name="average-game-time" id="average-game-time" placeholder="2 hours.."
+                    <input type="text" name="averageGameTime" id="average-game-time" placeholder="2 hours.."
                         autocomplete="off" required>
                     {{/if}}
                 </label>
@@ -62,13 +62,13 @@
 
                 </fieldset>
 
-                <label for="favorite-game-genre">What is your favorite game genre?
-                    {{#if answers.game_personal.favorite-game-genre }}
-                    <input list="game-genres" name="favorite-game-genre" id="favorite-game-genre"
-                        value="{{answers.game_personal.favorite-game-genre}}" autocomplete="off" required>
+                <label for="favoriteGameGenre">What is your favorite game genre?
+                    {{#if answers.game_personal.favoriteGameGenre }}
+                    <input list="game-genres" name="favoriteGameGenre" id="favorite-game-genre"
+                        value="{{answers.game_personal.favoriteGameGenre}}" autocomplete="off" required>
                     {{else}}
-                    <input list="game-genres" name="favorite-game-genre" id="favorite-game-genre"
-                        placeholder="Shooter.." autocomplete="off" required>
+                    <input list="game-genres" name="favoriteGameGenre" id="favorite-game-genre" placeholder="Shooter.."
+                        autocomplete="off" required>
                     {{/if}}
                 </label>
 

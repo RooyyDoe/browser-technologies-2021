@@ -26,45 +26,103 @@ const storageAvailable = () => {
     }
 }
 
-const getUniqueCodes = () => {
-	let uniqueCodes = Object.keys(localStorage)
-    console.log('showCodes', uniqueCodes)
-    return uniqueCodes
-}
+const getAllSurveys = () => Object.entries(localStorage)
 
 if (storageAvailable()) { 
-    const uniqueCodes = getUniqueCodes()
+    const surveys = getAllSurveys()
 
-    if(uniqueCodes) {
+    console.log('test1', surveys)
+
+    if(surveys) {
+
         const wrapper = document.getElementById('form-section')
         const uniqueCodeInput = document.getElementById('unique-code')
 
-        const availableCodes = document.createElement('p')
-        const uniqueCodeList = document.createElement('ul')
+        const availableSurveys = document.createElement('p')
+        const perviousSurveyList = document.createElement('ul')
 
-        availableCodes.textContent = 'These codes are available to re-use:'
-        availableCodes.id = 'available-codes'
+        availableSurveys.textContent = 'Do you want to continue with your previous survey?'
+        availableSurveys.id = 'available-surveys'
 
-        wrapper.append(availableCodes)
-        wrapper.append(uniqueCodeList)
+        wrapper.append(availableSurveys)
+        wrapper.append(perviousSurveyList)
 
-        uniqueCodes.forEach(code => {
+        surveys.forEach(survey => {
 
-            const uniqueCodeListItem = document.createElement('li')
-            const uniqueCodeItem = document.createElement('input')
+            const {code, 
+                personal: {name, surname, favoriteGame }, 
+                game_personal: {gamertag}, 
+                open_questions: {intoVideoGames},
+                rate_game: {recommend}} = JSON.parse(survey[1])
 
-            uniqueCodeItem.textContent = code
-            uniqueCodeItem.id = 'unique-codes-l-items'
-            uniqueCodeItem.value = code
-            uniqueCodeItem.readOnly = true
+            console.log('test2', code, name, favoriteGame)
 
-            uniqueCodeList.append(uniqueCodeListItem)
-            uniqueCodeListItem.append(uniqueCodeItem)
+            const surveyListItem = document.createElement('li')
+            const progression = document.createElement('progress')
+            const progressionLabel = document.createElement('label')
+            const id = document.createElement('p')
+            const username = document.createElement('p')
+            const game = document.createElement('p')
 
-            uniqueCodeItem.addEventListener('click', e => uniqueCodeInput.value = e.target.value)
-            uniqueCodeItem.onkeyup = (e) =>{
+            if(name && favoriteGame) {
+                username.textContent = 'Name: ' + name + ' ' + surname
+                game.textContent = 'Game: ' + favoriteGame
+
+                surveyListItem.append(username, game)
+                perviousSurveyList.append(surveyListItem)
+            } else if (!name && favoriteGame) {
+                id.textContent = 'Unique Code: ' + code
+                game.textContent = 'Game: ' + favoriteGame
+
+                surveyListItem.append(id, game)
+                perviousSurveyList.append(surveyListItem)
+            } else if (name && !favoriteGame) {
+                username.textContent = 'Name: ' + name + ' ' + surname
+                id.textContent = 'Unique Code: ' + code
+
+                surveyListItem.append(username, id)
+                perviousSurveyList.append(surveyListItem)
+            } else {
+                id.textContent = 'Unique Code: ' + code
+                surveyListItem.append(username, id)
+                perviousSurveyList.append(surveyListItem)
+            }
+
+            if (code && !favoriteGame && !gamertag && !intoVideoGames && !recommend) {
+                progressionLabel.textContent = 'Just started'
+                progression.value = 0
+                progression.max = 100
+            } else if (code && favoriteGame && !gamertag && !intoVideoGames && !recommend){
+                progressionLabel.textContent = 'You are at 25 % '
+                progression.value = 25
+                progression.max = 100
+            } else if (code && favoriteGame && gamertag && !intoVideoGames && !recommend){
+                progressionLabel.textContent = 'You are at 50 % '
+                progression.value = 50
+                progression.max = 100
+            } else if (code && favoriteGame && gamertag && intoVideoGames && !recommend){
+                progressionLabel.textContent = 'You are at 75 % '
+                progression.value = 75
+                progression.max = 100
+            } else if (code && favoriteGame && gamertag && intoVideoGames && recommend) {
+                progressionLabel.textContent = 'This survey is done'
+                progression.value = 100
+                progression.max = 100
+                localStorage.removeItem(code);
+            }
+
+            progressionLabel.id = 'progression-label'
+            surveyListItem.id = 'survey-l-items'
+            surveyListItem.readonly = true
+            surveyListItem.tabIndex = 0
+
+            surveyListItem.append(progressionLabel, progression)
+
+            surveyListItem.addEventListener('click', e => uniqueCodeInput.value = code)
+            surveyListItem.onkeyup = (e) =>{
                 if(e.code === 'Space'){
-                    uniqueCodeInput.value = e.target.value
+                    uniqueCodeInput.value = code
+                    document.getElementById("unique-code").focus();
                 }
             }
         });

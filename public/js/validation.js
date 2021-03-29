@@ -20,7 +20,6 @@ const progression = () => {
         else if (input.type === 'radio' && input.value === currentPageData[input.name]) {
             input.checked = true
         }
-
         
         input.addEventListener('blur', () => {
             const {name, value} = input

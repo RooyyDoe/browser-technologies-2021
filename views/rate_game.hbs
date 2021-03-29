@@ -20,11 +20,10 @@
             {{/if}}
 
             <article id="form-section">
-
-                <label for="opinion-about-the-game">What is your opinion about this game:
-                    <textarea name="opinion-about-the-game" id="opinion-about-the-game" cols="50" rows="5"
+                <label for="opinionAboutTheGame">What is your opinion about this game:
+                    <textarea name="opinionAboutTheGame" id="opinion-about-the-game" cols="50" rows="5"
                         placeholder="I think this game is awesome.."
-                        required>{{#if answers.rate_game.opinion-about-the-game }}{{answers.rate_game.opinion-about-the-game}}{{/if}}</textarea>
+                        required>{{#if answers.rate_game.opinionAboutTheGame }}{{answers.rate_game.opinionAboutTheGame}}{{/if}}</textarea>
                 </label>
 
 
@@ -68,12 +67,12 @@
 
                 </fieldset>
 
-                <label for="time-spend">How much time have you spend playing this game:
-                    {{#if answers.rate_game.time-spend }}
-                    <input type="text" name="time-spend" id="time-spend" value="{{answers.rate_game.time-spend}}"
+                <label for="timeSpend">How much time have you spend playing this game:
+                    {{#if answers.rate_game.timeSpend }}
+                    <input type="text" name="timeSpend" id="time-spend" value="{{answers.rate_game.timeSpend}}"
                         inputmode="numeric" autocomplete="off" pattern="[0-9]+" required>
                     {{else}}
-                    <input type="text" name="time-spend" id="time-spend" inputmode="numeric" autocomplete="off"
+                    <input type="text" name="timeSpend" id="time-spend" inputmode="numeric" autocomplete="off"
                         pattern="[0-9]+" placeholder="100" required>
                     {{/if}}
                 </label>
@@ -101,7 +100,7 @@
                 <article id="buttons">
                     <a href="/open_questions_back/{{uniqueCode}}" tabindex="0">Previous</a>
 
-                    <input type="submit" value="Next">
+                    <input type="submit" id="last-button" value="Send survey">
                 </article>
             </article>
 

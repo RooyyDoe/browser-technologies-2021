@@ -7,31 +7,31 @@ module.exports = (req, res) => {
 
     // new empty object for the given code.
     const newObj = {
-        "code": givenCode,
-        "personal": {
-            "name": "",
-            "surname": "",
-            "age": "",
-            "gender": "",
-            "favorite-game": "",
+        code: givenCode,
+        personal: {
+            name: "",
+            surname: "",
+            age: "",
+            gender: "",
+            favoriteGame: "",
         },
         "game_personal": {
-            "favorite-platform": "",
-            "average-game-time": "",
-            "prefer": "",
-            "favorite-game-genre": "",
-            "gamertag": "",
+            favoritePlatform: "",
+            averageGameTime: "",
+            prefer: "",
+            favoriteGameGenre: "",
+            gamertag: "",
         },
         "open_questions": {
-            "favorite-game-of-all-time": "",
-            "what-would-you-do": "",
-            "into-video-games": "",
+            favoriteGameOfAllTime: "",
+            whatWouldYouDo: "",
+            intoVideoGames: "",
         },
         "rate_game": {
-            "opinion-about-the-game": "",
-            "rate": "",
-            "time-spend": "",
-            "recommend": "",
+            opinionAboutTheGame: "",
+            rate: "",
+            timeSpend: "",
+            recommend: "",
         },
     }
 

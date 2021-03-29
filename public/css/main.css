@@ -50,6 +50,10 @@ header > img {
 
 /* resume section */
 
+#get-unique-code {
+  width: 50%;
+}
+
 #resume-section {
   display: flex;
   justify-content: flex-start;
@@ -73,7 +77,7 @@ header > img {
   align-self: center;
 }
 
-/* uniqueCodeList */
+/* unique Survey List */
 
 ul {
   display: flex;
@@ -84,16 +88,31 @@ ul {
   list-style-type: none;
 }
 
-#unique-codes-l-items {
+#survey-l-items {
   font-family: "BeaufortforLOL", Times, serif;
   background-color: transparent;
   color: #c4b998;
   border: 1px solid #937341;
+  text-align: left;
   padding: 0.5em 0.6em;
   margin: 0.5em;
+  cursor: pointer;
+  transition: 1s;
 }
 
-#available-codes {
+#survey-l-items:hover {
+  border: 1px solid #c4b998;
+  color: #937341;
+  transition: 1s;
+}
+
+#survey-l-items > p {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+}
+
+#available-surveys {
   font-family: "BeaufortforLOL", Times, serif;
   color: #937341;
   text-align: left;
@@ -300,7 +319,7 @@ input[type="submit"]:hover {
 
 /* Dropdown input */
 
-input[name="favorite-game-genre"] {
+input[name="favoriteGameGenre"] {
   font-family: "BeaufortLOL-Light", Times, serif;
   font-size: 0.8rem;
   border: 1px solid #937341;
