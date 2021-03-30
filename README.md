@@ -178,15 +178,158 @@ The browsers I am going to use to test my application on:
 - Google Chrome android
 - standard browser android
 
-## Layers ( Progressive Enhancement )
+## Layers
 
 I want to create a survey for people that have interests in games. The survey will exist out of four different pages where the user will be answering some questions I've come up with. I will start to make the functional/reliable layer first. this will mainly exists out of plain HTML. When I have this working i'll go on with the usable and pleasurable layers. 
 
+<details>
+  <summary>Functional layer</summary>
+</details>
+
+<details>
+  <summary>Usable layer</summary>
+</details>
+
+<details>
+  <summary>Pleasurable layer</summary>
+</details>
+
 ## CSS / JS support
 
-### CSS support
+<details>
+  <summary>CSS support</summary>
 
-### JS support
+When I am doing CSS I am mainly focussing on `divs` and `classes`. This project I tried to focus on `ID's` and normal CSS attributes like: `input[type="text"]`. On this way I will not work with to many classes and the HTML code will also be cleaner and in the end the CSS code will be much less. 
+
+As CSS Support I have used the `@support` attribute to look if a browser supports the styling that you want to add. In this case it was on the `android default browser` where the text was not aligning to the center, but it stayed at the left side of the screen. When `align-items: center` is supported in browsers this will be the CSS code that will be send through.
+
+```
+@supports (align-items: center) {
+  fieldset {
+    flex-grow: 1;
+    margin: 30px;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+```
+
+Whenever this is not supported I will give a fall-back option for the problem: 
+
+```
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: -webkit-center;
+}
+```
+
+This project I wanted to try to not use the `@media` attribute as much as I used to in other projects. I mainly worked with `width` and `height` and the variable `vw` for the headlines. Also used flex for the alignment of the form elements. `@media` is a attribute what you will use for support detection aswell. Whenever you open a browser on the mobile, tablet or computer the application needs to work. I mainly used it for fixing other browsers like `firefox` and `standard android browser` 
+
+```
+@media screen and (min-device-width: 1200px) and (max-device-width: 1820px) and (-webkit-min-device-pixel-ratio: 1) {
+  header > img {
+    left: 49%;
+  }
+
+  #form-section {
+    width: 40%;
+  }
+}
+```
+
+I had somme small issues with my header image and it did not stay right in the middle in the `firefox` browser, so I have just put it to the left a little bit. And the `form-section` was getting to big when you look at it on a big computer screen I wanted to have a small form and not a stretched one. Both of the changes could be removed and the CSS layer will still work perfectly. These are just slight adjustments to correct some styling parts.
+</details>
+
+<details>
+  <summary>JS support</summary>
+  
+  As for javascript I haven't had to much issues with finding feature detection support. I am mainly using javascript functionalities that are supported in the browsers I have tested.
+  
+  In my application some of the functionalities are making use of `localStorage`. Because of this I want to make sure I can check if `localStorage` works by the users and if so it will run the functionalities and when for example `javascript` or `localStorage` is off, it will run the code of the fall-back section. some functionalities can not function without `localStorage` so these functionalities will not be visible for the user without `localStorage`.
+  
+  This piece of code checks if localStorage is available:
+  
+  ```
+  const storageAvailable = () => {
+    let storage;
+    try {
+        storage = window['localStorage'];
+        var x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+}
+  ```
+
+Whenever you want to check if `localStorage` is available you can use this piece of code:
+
+```
+if (storageAvailable()) {
+    // Code that will run when localStorage is available
+} else (
+    // Code that will run when localStorage is not available
+)
+```
+
+### Fall-back explained
+
+I am not making use of this subject to much into my code next to the one for javascript, so I want to give another example that will explain it in more details. The reason I am not making use of this is that all the browsers that I test in work fine with the javascript code I use, but whenever I am going to expand to more browser this will maybe a good `feature detection` option:
+
+```
+function addEventListener() {
+    if (window.addEventListener) {
+        return true
+    } else {
+        return false
+    }
+}
+
+const validateInputs = (inputs) => {
+    inputs.forEach(input => {
+        if(addEventListener()) {
+            input.addEventListener('blur', () => {
+                if (input.type === 'text' && !input.pattern.includes('[0-9]+')) {
+                    if (input.value === '') {
+                        // Some code that will be executed
+                    }
+                }
+            })
+        } else {
+            input.attachEvent('onblur', () => {
+                if (input.type === 'text' && !input.pattern.includes('[0-9]+')) {
+                    if (input.value === '') {
+                        // Some code that will be executed
+                    }
+                }
+            })
+        }
+    })
+}
+
+```
+
+The `attachEvent` was back in the days mainly used for `internet explorer` and was a good fall-back for the `addEventListener`, but it is microsoft edge now and in there `addEventListener` is supported, so in my code it is not needed anymore. So whenever a browser does not support a functionality you want to have a fall-back that is supported in the paticular browser. By doing this ur application will work in all the browsers.
+  
+</details>
 
 ## What happens if? 
 
@@ -350,6 +493,9 @@ The user can just `TAB` to the previous survey and click on `Space` and will be 
 - [Mozilla Developer Network](https://developer.mozilla.org/en-US/) - I mostly used this site to obtain my sources
 - [localStorage from MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) - Helped me a lot with the client-side
 - [localStorage Feature Detection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) - Feature detection JS
+- [Progressive enhancement](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/) - Substantiation for progressive enhancement
+- [Progressive enhancement](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/) - Substantiation for progressive enhancement
+- [Progressive enhancement](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/) - Substantiation for progressive enhancement
 
 ## Credits
 
