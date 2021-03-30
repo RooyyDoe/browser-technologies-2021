@@ -8,7 +8,7 @@ const storageAvailable = () => {
     let storage;
     try {
         storage = window['localStorage'];
-        var x = '__storage_test__';
+        let x = '__storage_test__';
         storage.setItem(x, x);
         storage.removeItem(x);
         return true;
@@ -42,7 +42,7 @@ if (storageAvailable()) {
             if (input.type === 'text') input.value = currentPageData[input.name]
             else if (input.type === 'radio' && input.value === currentPageData[input.name]) {
                 input.checked = true
-            }
+            } else if (input.type === 'textarea') input.value = currentPageData[input.name]
             
             input.addEventListener('blur', () => {
                 const {name, value} = input
@@ -176,3 +176,4 @@ const validateInputs = (inputs) => {
 }
 
 validateInputs(inputs)
+

@@ -5,7 +5,7 @@ const storageAvailable = () => {
     let storage;
     try {
         storage = window['localStorage'];
-        var x = '__storage_test__';
+        let x = '__storage_test__';
         storage.setItem(x, x);
         storage.removeItem(x);
         return true;
@@ -33,7 +33,7 @@ if (storageAvailable()) {
 
     if(surveys) {
 
-        const wrapper = document.getElementById('form-section')
+        const form = document.getElementById('form-section')
         const uniqueCodeInput = document.getElementById('unique-code')
 
         const availableSurveys = document.createElement('p')
@@ -42,8 +42,8 @@ if (storageAvailable()) {
         availableSurveys.textContent = 'Do you want to continue with your previous survey?'
         availableSurveys.id = 'available-surveys'
 
-        wrapper.append(availableSurveys)
-        wrapper.append(perviousSurveyList)
+        form.append(availableSurveys)
+        form.append(perviousSurveyList)
 
         surveys.forEach(survey => {
 
@@ -126,5 +126,6 @@ if (storageAvailable()) {
 } else {
     console.log('localStorage is not available (Turn it on and refresh!)')
 }
+
 
 

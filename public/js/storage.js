@@ -8,7 +8,7 @@ const storageAvailable = () => {
     let storage;
     try {
         storage = window['localStorage'];
-        var x = '__storage_test__';
+        let x = '__storage_test__';
         storage.setItem(x, x);
         storage.removeItem(x);
         return true;
