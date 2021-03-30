@@ -424,8 +424,48 @@ With this piece of code I have every single input of the current page in a array
   
   On the server-side of this application it automatically saves the data to a `JSON` file and then write it back. I want to enhance this feature into saving the data whenever a user leaves the input field. When a user leaves the survey and had only filled in two fields of a survey page and is going to come back later both these fields will be filled in already. I am going to do this through `localStorage`
   
-  At first I want to keep the 
+  ![localStorage_in_working](https://im3.ezgif.com/tmp/ezgif-3-292568e84f87.gif)
   
+  This is the function I am using for this enhancement. I am first parsing the data to JSON so that I can use it and after that I will link the current path to the JSON data and only get the data under the name that is equal to the `pathname` variable.
+  
+  Then `forEach` input I am going to fill in the data from the `localStorage` and when the data change through user input _(blur event)_ I will write the data to localStorage, so that whenever the user leaves early and comes back the same inputs will be filled in already.
+  
+  ```
+      const progression = () => {
+        // Parses the survey object into JSON so we can work with it.
+        const currentSurvey = JSON.parse(getCurrentSurvey(uniqueCodeInput))
+        // gets the path of current page this title will be the same as the
+        // parent object of the fields { personal: {....}} 
+        const pathname = form.id
+        // sets the data linked to the current page into this variable 
+        // { personal: {age: "", favoriteGame: ""}} etc 
+        const currentPageData = currentSurvey[pathname]
+
+        // for each input run this code
+        inputs.forEach(input => {
+            // fills localStorage data into the input.value of each input on this way
+            // the data will be visible for the users.
+            if (input.type === 'text') input.value = currentPageData[input.name]
+            else if (input.type === 'radio' && input.value === currentPageData[input.name]) {
+                input.checked = true
+            } 
+            else if (input.type === 'textarea') input.value = currentPageData[input.name]
+            
+            input.addEventListener('blur', () => {
+                // gets name and value of the input element that has the event blur
+                const {name, value} = input
+                
+                // gets the variable in the JSON object and overrites the value
+                currentPageData[name] = value
+            
+                // Strinigy's the data
+                localStorage.setItem(uniqueCodeInput, JSON.stringify(currentSurvey)) 
+            })
+        })
+    }
+
+progression()
+```
   
 </details>
 
@@ -705,9 +745,23 @@ The user can just `TAB` to the previous survey and click on `Space` and will be 
 
 ## Conclusion
 
+After this course, I finally have more understanding of the terms progressive enhancement and feature detection. These terms where very vague in the beginning and became more and more clear along the way of this course. I am also happy that I was able to turn a robust survey that consisted only of HTML into a fully working survey with all the enhancements included. In addition, my goal was to start working with localStorage and to investigate exactly how this works, so that I could use it in more projects after this one. I think I have done quite well this course and that I have created a super cool application in general. next to all the developer progression I have made I also overcame fears during this period that caused me to fail last year and I think that is already quite a victory.
+
 ### My take on Progressive Enhancement
 
+With Progressive enhancement you make sure the core functionality works on every device, and then you add extra features when the browsers can handle these features. The core functionality mostly exists out of plain HTML and server-side functionalities. These functionalities will always work when for example Javascript is turned off. These functionalities can be _Account management, Validation, Saving data through an database or JSON, (add, update, remove), ect_
+
+The usable layer is an upgrade of the core functionality. This is done through styling and will make your application easier to use for your users. For example you can change the styling of your headlines/paragraphs, so that it is better readable for your users. Or style the buttons in the application and make the content fully responsive. In this layer you will make mostly use of CSS and a bit of Javascript.
+
+The pleasurable layer is the layer where we will add extra enhancements so that it will be more pleasurable for the users. The layer is a bit like the usable layer only the focus is not that much on the look and feel, but more on what extra functionalities that can be added to give the user a more pleasurable experience. This layer is also mostly commonly linked to the client-side javascript.
+
 ### My take on Feature Detection
+
+The idea behind feature detection is that you can test to see if a feature is supported in the current browser, and when it is supported run the code to provide an acceptable experience both in browsers the one that supports the feature and the one that dont. If you are not able to do this, browsers that do not support the features you are using in your application will not display them properly and will just fail. When this happens you are creating a bad user experience.
+
+In my code a good example is the `localStorage`. Whenever I make use of `localStorage` I will first check if it is available and when it is available it will automatically run the code, but when it does not support `localStorage` it will use the fall-back option of my application and that will be the server-side functionalities of my application. 
+
+With the enhancement(localStorage) I am making the user experience more pleasant so that the user does not have to remember the `unique code` and he can just click on one of the items in the `previous survey list`, but whenever `localStorage` is not available the user needs to copy or remember the code when they want to return to where they left off.
 
 ## Extra
 
