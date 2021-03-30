@@ -13,15 +13,28 @@ I want to be able to fill out a survey where the questions are aimed at gamers, 
 When a user opens the application, he / she is given the option to start a new survey or to continue where he / she left off. Each survey will have a unique code. This code allows the user to get back where he / she left off in the survey. Every time the user goes to the next section the data will be saved to a JSON file and can be extracted by making use of the unique code. The user needs to keep a good hold on the unique code otherways he / she will not be able to return where they left off.
 
 ## Final Product
-<img width="1440" alt="Schermafbeelding 2021-03-26 om 16 33 25" src="https://user-images.githubusercontent.com/40355914/112655933-2f2e7100-8e51-11eb-8569-9c9969a82758.png">
+<img width="1552" alt="Schermafbeelding 2021-03-30 om 18 11 18" src="https://user-images.githubusercontent.com/40355914/113020911-5a7fcb80-9183-11eb-8705-630ce439ebf5.png">
 
 ## Table of contents
 
-- [Case](#case)
-- [Final Product](#final-product)
+- [Introduction](#introduction)
+  - [Case](#case)
+  - [Working of my application](#working-of-my-application)
+  - [Final Product](#final-product)
+- [Features](#features)
+- [Install](#install)
+- [Wireflow](#wireflows)
+- [Test Browsers](#browsers)
+- [Layers](#layers)
+- [CSS / JS Support](#css/js-support)
+- [What happens if?](#what-happens-if)
+- [Conclusion](#conclusion)
+- [Extra](#extra)
   - [Opdracht 1 🛹 NPM install Progressive enhancement](Opdracht-1-🛹-NPM-install-Progressive-enhancement)
   - [Opdracht 2 💔 Breek het Web](Opdracht-2-💔-Breek-het-Web)
   - [Article notes](Article-notes)
+  - [Sources](#sources)
+  - [Credits](#credits)
 
 ## Features
 
@@ -173,10 +186,65 @@ These are the wireflows for the survey, start and end screen. I have annotations
 
 The browsers I am going to use to test my application on:
 
-- Google Chrome
-- Firefox 
-- Google Chrome android
-- standard browser android
+Google Chrome _(Works perfectly - Browser I designed in)_
+
+<details>
+  <summary>Firefox</summary>
+  
+  In firefox I had some issues with the `viewWidth` when using this on the `Headlines`, but I have adjust this to the perfect pixel ratio, so it would work on `firefox` and `chrome` 
+  
+  ```
+  legend > h1 {
+  font-family: "BeaufortforLOL-bold", Times, serif;
+  font-size: 5.5vw;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 0.5em;
+  margin: 0px auto;
+  }
+  ```
+  This browser also had some issues with aligning the `headlines` of every page to the center. This happend, because I had not use the right styling for this. I was using `align-self: center`, but I just needed to give it a `margin: 0px auto`. It is not that the `firefox` browser did not support this feature, because I have used this feature more than once. 
+  
+  I still have an issue with the `tabbing` through the survey pages. It does not recognize an `<a href="">` element when it is tabbed. On all the other elements there will be a blue outlining whenever the users tabs through, but not on the `a` element. I have not fixed this problem, becaus I did not know how to do that.
+  In the gif under here you see that I can tab on the `a` element but it will not put an outline around it.
+  
+  ![firefox_bug](https://im6.ezgif.com/tmp/ezgif-6-53d60bc66c80.gif)
+  
+</details>
+
+Google Chrome android _(Works perfectly, because I designed mobile first in the google chrome browser)_
+
+<details>
+  <summary>standard browser android</summary>
+  
+  In this mobile browser some features of CSS/Javascript are unknown if they are supported, so when I tested this browser a CSS feature did not work. I have used `@support` for this problem and got it working again. Also some aligning of elements are not working properly on this browser, but it does not make the user experience worse and all the enhancements work perfectly.
+  
+  ```
+  
+  fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: -webkit-center;
+}
+
+@supports (align-items: center) {
+  fieldset {
+    flex-grow: 1;
+    margin: 30px;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+```
+  
+</details>
+
 
 ## Layers
 
@@ -293,6 +361,72 @@ With this piece of code I have every single input of the current page in a array
 
 <details>
   <summary>Pleasurable layer</summary>
+  
+  The pleasurable layer is the layer where we will add extra enhancements for the user to make it more pleasurable. The layer is a bit like the usable layer only not so focust on the look and feel, but more on what extra functionalities I can add to give the user a more pleasurable experience. This layer is also mostly commonly linked to the client-side javascript.
+  
+  #### List with previous surveys
+  
+  As a user you need to save the unique code u get at the beginning of the survey. When a user forgets this code or loses this they will never be able to return to the previous survey. I wanted make an enhancement for this so that the unique code will always be available when the user forgets to copy the code. 
+  
+  whenever a user comes back to the application and they want to continue with a previous survey there will be a list on the homepage with all the surveys that are available to resume.
+  
+  <img width="349" alt="Schermafbeelding 2021-03-29 om 16 15 42" src="https://user-images.githubusercontent.com/40355914/113026772-b3526280-9189-11eb-809e-7f3aac06db7c.png">
+  
+  the previous survey list works with `localStorage` and will not work without it. Whenever the user gets to the `get_code` page I will save a object to localStorage with in here the `unique code`.
+  
+  ```
+    // getting uniqueCode from HTML
+    const uniqueCode = document.getElementById('get-unique-code').value
+    // Making empty object linked to the uniqueCode for localStorage
+    const newSurvey = {
+        code: uniqueCode,
+        personal: {
+            name: "",
+            surname: "",
+            age: "",
+            gender: "",
+            favoriteGame: "",
+        },
+        "game_personal": {
+            favoritePlatform: "",
+            averageGameTime: "",
+            prefer: "",
+            favoriteGameGenre: "",
+            gamertag: "",
+        },
+        "open_questions": {
+            favoriteGameOfAllTime: "",
+            whatWouldYouDo: "",
+            intoVideoGames: "",
+        },
+        "rate_game": {
+            opinionAboutTheGame: "",
+            rate: "",
+            timeSpend: "",
+            recommend: "",
+        },
+    }
+
+    localStorage.setItem(uniqueCode, JSON.stringify(newSurvey)) 
+  ```
+  
+  We can call this object in the `start` page and write the data into a HTML element. In the next section I will explain more about the JSON object in localStorage. At first it was just a list of plain list `unique codes` where the users could click on and had no further information. This was not that good of a UX design, so I had to change it and give it a bit more information. I have implemented four different use cases:
+  
+  - User has just started the survey: The `previous survey` element will only show the `unique code` of the survey
+  - User has only filled in the name: The `previous survey` element will show the `name` and `unique code` of the survey
+  - User has only filled in the favorite game: the `previous survey` element will show the `favorite game` and `unique code` of the survey
+  - User has filled in name and favorite game: the `previous survey` element will show the `name` and `favorite game` of the survey
+ 
+ On every page I have a progress bar that shows the user how far they are with the survey. As feedback I heard that it would be nice to see that back in the previous list aswell. So whenever a user has just finished the second part it will show that they have 50% done when they come back to the `start` page.
+  
+  
+  #### Saving data on `blur`
+  
+  On the server-side of this application it automatically saves the data to a `JSON` file and then write it back. I want to enhance this feature into saving the data whenever a user leaves the input field. When a user leaves the survey and had only filled in two fields of a survey page and is going to come back later both these fields will be filled in already. I am going to do this through `localStorage`
+  
+  At first I want to keep the 
+  
+  
 </details>
 
 ## CSS / JS support
@@ -574,6 +708,8 @@ The user can just `TAB` to the previous survey and click on `Space` and will be 
 ### My take on Progressive Enhancement
 
 ### My take on Feature Detection
+
+## Extra
 
 ### Opdracht 1 🛹 NPM install Progressive enhancement
 
