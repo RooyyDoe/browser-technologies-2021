@@ -152,13 +152,6 @@ form {
   margin: auto;
 }
 
-/* @supports (text-align: center) {
-  form {
-    text-align: center;
-    margin: auto;
-  }
-} */
-
 #form-section {
   display: flex;
   flex-direction: column;
@@ -424,31 +417,31 @@ textarea {
 
 /* Validation classes */
 
-.wrong input,
-.wrong textarea {
+.invalid input,
+.invalid textarea {
   background-image: url("../images/warning.svg");
 }
 
-.wrong:after {
+.invalid:after {
   content: attr(error-message);
   display: block;
   margin-bottom: -1em;
   color: #be1e37;
 }
 
-.correct input,
-.correct textarea {
+.valid input,
+.valid textarea {
   background-image: url("../images/check-mark.svg");
 }
 
-.correct input,
-.wrong input {
+.valid input,
+.invalid input {
   background-size: 0.8em 0.8em;
   background-repeat: no-repeat;
   background-position: 100% 50%;
 }
-.correct textarea,
-.wrong textarea {
+.valid textarea,
+.invalid textarea {
   background-size: 1.5em 1.5em;
   background-repeat: no-repeat;
   background-position: 95% 85%;

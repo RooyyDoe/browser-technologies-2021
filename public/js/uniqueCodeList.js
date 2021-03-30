@@ -31,8 +31,6 @@ const getAllSurveys = () => Object.entries(localStorage)
 if (storageAvailable()) { 
     const surveys = getAllSurveys()
 
-    console.log('test1', surveys)
-
     if(surveys) {
 
         const wrapper = document.getElementById('form-section')
@@ -54,8 +52,6 @@ if (storageAvailable()) {
                 game_personal: {gamertag}, 
                 open_questions: {intoVideoGames},
                 rate_game: {recommend}} = JSON.parse(survey[1])
-
-            console.log('test2', code, name, favoriteGame)
 
             const surveyListItem = document.createElement('li')
             const progression = document.createElement('progress')
@@ -128,7 +124,7 @@ if (storageAvailable()) {
         });
     }
 } else {
-    // Storage is sadly not available :(
+    console.log('localStorage is not available (Turn it on and refresh!)')
 }
 
 

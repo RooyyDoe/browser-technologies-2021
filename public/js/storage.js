@@ -1,8 +1,9 @@
 // Guide I followed to get this:
 // https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#testing_for_availability
 
+const input = document.getElementById('get-unique-code')
+input.select()
 
-// Checks if localStorage is available
 const storageAvailable = () => {
     let storage;
     try {
@@ -29,11 +30,8 @@ const storageAvailable = () => {
 }
 
 if (storageAvailable()) {
-    console.log("Storage is available")
 
-    // getting uniqueCode from HTML
     const uniqueCode = document.getElementById('get-unique-code').value
-    // Making empty object linked to the uniqueCode for localStorage
     const newSurvey = {
         code: uniqueCode,
         personal: {
@@ -63,11 +61,10 @@ if (storageAvailable()) {
         },
     }
 
+
     localStorage.setItem(uniqueCode, JSON.stringify(newSurvey)) 
 
-    console.log("storage", localStorage)
-
 } else (
-    console.log("Storage is not avaiable turn on your Javascript!")
+    console.log("Storage is not avaiable come back later!")
 )
 

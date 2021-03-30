@@ -11,10 +11,6 @@ const progression = () => {
     const pathname = form.id
     const currentPageData = currentSurvey[pathname]
 
-    console.log(pathname)
-
-    console.log('test', currentPageData)
-
     inputs.forEach(input => {
         if (input.type === 'text') input.value = currentPageData[input.name]
         else if (input.type === 'radio' && input.value === currentPageData[input.name]) {
@@ -43,7 +39,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('wrong')
+                    label.classList.add('invalid')
                     label.setAttribute('error-message', 'Please enter a valid input')
 
                     input.style.borderColor = '#be1e37'
@@ -54,7 +50,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('wrong')
+                    label.classList.add('invalid')
                     label.setAttribute('error-message', 'Must be atleast 3 characters')
 
                     input.style.borderColor = '#be1e37'
@@ -65,7 +61,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('correct')
+                    label.classList.add('valid')
 
                     input.style.borderColor = '#937341'
                     document.querySelector('input[type=submit]').disabled = false
@@ -78,7 +74,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('wrong')
+                    label.classList.add('invalid')
                     label.setAttribute('error-message', 'Please enter a valid input')
 
                     input.style.borderColor = '#be1e37'
@@ -89,7 +85,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('wrong')
+                    label.classList.add('invalid')
                     label.setAttribute('error-message', 'Only digits allowed')
 
                     input.style.borderColor = '#be1e37'
@@ -100,7 +96,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('correct')
+                    label.classList.add('valid')
 
                     input.style.borderColor = '#937341'
                     document.querySelector('input[type=submit]').disabled = false
@@ -113,7 +109,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('wrong')
+                    label.classList.add('invalid')
                     label.setAttribute('error-message', 'Please enter a valid input')
 
                     input.style.borderColor = '#be1e37'
@@ -124,7 +120,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('wrong')
+                    label.classList.add('invalid')
                     label.setAttribute('error-message', 'Must be atleast 3 characters')
 
                     input.style.borderColor = '#be1e37'
@@ -135,7 +131,7 @@ const validateInputs = (inputs) => {
                     label.className = ''
                     label.setAttribute('error-message', '')
 
-                    label.classList.add('correct')
+                    label.classList.add('valid')
 
                     input.style.borderColor = '#937341'
                     document.querySelector('input[type=submit]').disabled = false
