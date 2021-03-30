@@ -26,7 +26,7 @@ When a user opens the application, he / she is given the option to start a new s
 ## Features
 
 - [x] [Localstorage](https://developer.mozilla.org/en-US/docs/Web/API/Storage_API)
-- [ ] Feature Detection
+- [x] Feature Detection
 - [x] Progressive Enhancement
 - [x] Form Validation
 - [ ] [Clipboard](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
@@ -190,21 +190,140 @@ I want to create a survey for people that have interests in games. The survey wi
 
 ## What happens if? 
 
-### Turn off images
+<details>
+  <summary>Turn off images</summary>
+  
+In my application I am not using that many images to begin with. I am using a couple `SVG` images that will be removed, but nothing will happen with the layout and every width/height will stay the same. All the images also have an empty `alt`, because of this there will be no image placeholder visible. The background image will just be replaced with the `background-color`
 
-### Custom font
+<img width="1440" alt="Schermafbeelding 2021-03-30 om 10 59 39" src="https://user-images.githubusercontent.com/40355914/112962893-2686b500-9147-11eb-930c-5f3780899af1.png">
 
-### Muis / Trackpad
+<img width="1440" alt="Schermafbeelding 2021-03-30 om 10 59 19" src="https://user-images.githubusercontent.com/40355914/112962948-31d9e080-9147-11eb-90d1-8e93ea66aceb.png">
 
-### Breedband internet
+Next to this I am making use of validation icon's that will show if the user has filled in the inputs correctly. As back-up I also make use of a underline message that tells the user if he does something wrong.
 
-### Javascript
+<img width="571" alt="Schermafbeelding 2021-03-30 om 11 05 59" src="https://user-images.githubusercontent.com/40355914/112963752-f68be180-9147-11eb-9c3e-8c8badb6170e.png">
 
-### Cookies
+<img width="579" alt="Schermafbeelding 2021-03-30 om 11 06 09" src="https://user-images.githubusercontent.com/40355914/112963779-fe4b8600-9147-11eb-9e6b-b8aadf60eb3d.png">
 
-### localStorage
+</details>
 
-### Screen reader
+<details>
+  <summary>Custom font</summary>
+
+I am making use of a custom font with `@font-face`
+
+```
+
+@font-face {
+  font-family: "BeaufortforLOL";
+  src: url("../fonts/Beaufort-Regular.ttf"),
+    url("../fonts/Beaufort-Regular.woff"),
+    url("../fonts/Beaufort-Regular.woff2");
+}
+
+```
+
+When the custom font doesn't load in I am falling back on my back-up fonts(Times or Serif):
+
+```
+font-family: "BeaufortforLOL", Times, serif;
+```
+</details>
+
+<details>
+  <summary>Color</summary>
+  
+  These are the different color I use. It is hard to test with a `filter` attribute on an image. In the second one is the ratio a bit low and the first one is perfect.
+  
+  <img width="1440" alt="Schermafbeelding 2021-03-30 om 11 58 19" src="https://user-images.githubusercontent.com/40355914/112971431-7ff2e200-914f-11eb-9e5d-adc8ecb45d9f.png">
+
+<img width="1440" alt="Schermafbeelding 2021-03-30 om 11 59 21" src="https://user-images.githubusercontent.com/40355914/112971451-841eff80-914f-11eb-8f30-3ebf005985a6.png">
+  
+</details>
+
+<details>
+  <summary> Muis / Trackpad </summary>
+  
+When the user can only use the keyboard or when the trackpad/mouse is not working you can use `TAB` to navigate through the survey. When a user comes back to the application to finish a previous survey, they will have a easy way to select the previous survey and continue with it.
+  
+![chrome-capture (2)](https://user-images.githubusercontent.com/40355914/112965824-eaa11f00-9149-11eb-8049-bd814a828f12.gif)
+
+The user can just `TAB` to the previous survey and click on `Space` and will be automatically be returned to the input field and then will be able to click on `Enter` to go back to this survey. 
+  
+</details>
+
+<details>
+  <summary>Breedband internet</summary>
+  
+  I have tested this on slow internet, because if the internet is gone it will just give me a `no internet` page from the browser. The website will load in, but it will take around 5 - 10 seconds to fully load in. Also the `font-family` will not load in right away, but it will use the fall-back font.
+  
+  ![internet_gif](https://im2.ezgif.com/tmp/ezgif-2-878b58040153.gif)
+  
+</details>
+
+<details>
+  <summary>Javascript</summary>
+  
+  When I turn off Javascript my client-side functionalities will not work anymore. This will mean the `localStorage`, `previous survey list` and `custom validation` will not work anymore. It will fall back on the `required` attributes of HTML and it will use the server-side to load in the writen data from a user. When a user goes to the next survey page the data will be writen to an `database` file and when the users want to come back to the application they can use the `unique key` from the previous session to go back where they left off.
+  
+  ![Turn_Off_javascript](https://im2.ezgif.com/tmp/ezgif-2-3e8aa2fc4a35.gif)
+  
+</details>
+
+<details>
+  <summary>Cookies</summary>
+  
+  I am making no use of `cookies` in my application, but `cookies` work together with `localStorage`. When you turn off `cookies`, `localStorage` will also be turned off and the client-side of my application will not work, but as back-up we have the server-side. So the core functionality will always work.
+  
+</details>
+
+<details>
+  <summary> localStorage </summary>
+  
+  This is where I am making use of `feature detection`. In this piece of code it will run a `try, catch` that looks if `localStorage` is available.
+  
+  ```
+  
+  const storageAvailable = () => {
+    let storage;
+    try {
+        storage = window['localStorage'];
+        var x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+}
+  
+  ```
+  
+  This will be followed up by an `if` statement that will run code when localStorage is available.
+  
+  ```
+  
+  if( storageAvailable() ) {
+   // Code when storage is available
+   } else {
+   // Storage is not available 
+   }
+   
+  ```
+  
+</details>
 
 ## Conclusion
 
@@ -229,7 +348,10 @@ I want to create a survey for people that have interests in games. The survey wi
 ## Sources
 
 - [Mozilla Developer Network](https://developer.mozilla.org/en-US/) - I mostly used this site to obtain my sources
+- [localStorage from MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) - Helped me a lot with the client-side
+- [localStorage Feature Detection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) - Feature detection JS
 
 ## Credits
 
 - [Wessel Smit](https://github.com/WesselSmit) - BIG thanks for helping me with server-side!! 
+- [Thijs Spijker](https://github.com/iSirThijs) - helped me with some issues on the client-side
