@@ -180,14 +180,115 @@ The browsers I am going to use to test my application on:
 
 ## Layers
 
-I want to create a survey for people that have interests in games. The survey will exist out of four different pages where the user will be answering some questions I've come up with. I will start to make the functional/reliable layer first. this will mainly exists out of plain HTML. When I have this working i'll go on with the usable and pleasurable layers. 
-
 <details>
   <summary>Functional layer</summary>
+  
+  The functional layer is the core functionality of the application this needs to work on every device. Part of the core functionality is that the survey needs to be saved and can be continued later by the user. This part of the application mainly exists out of plain HTML and server-side functionalities.
+  
+  <img width="1552" alt="Schermafbeelding 2021-03-30 om 15 35 42" src="https://user-images.githubusercontent.com/40355914/112997690-a0319980-916d-11eb-9353-dfab8b7d3018.png">
+  
+  I have added the `required` attribute to every input that exists in the survey. This will be the core validation of my application. Whenever a user clicks on the `input:submit` button it will check if all the required fields are filled in and will give a message to the field that is not filled in correctly. Whenever the user has filled in all the fields correctly the data will be writen to the server and linked to a `unique code` that users will get whenever they start a new survey.
+  
+  <img width="185" alt="Schermafbeelding 2021-03-30 om 15 51 42" src="https://user-images.githubusercontent.com/40355914/113000173-dcfe9000-916f-11eb-9d7d-35716f703fb9.png">
+  
+  If they leave the survey without finishing it the `unique code` is the only way back to continue with the survey where they left off.
+  
+  
 </details>
 
 <details>
   <summary>Usable layer</summary>
+  
+  The usable layer is an upgrade of the core functionality. This is done through styling and will make your application easier to use. 
+  
+  In the usable layer I want to create a better visual experience for the user. This layer gives the user a better view of how the application works and will make it easier for the user to follow the flow. 
+  
+  #### Making the application readable
+  
+  As text styling I have used a couple different colors to separate the labels/inputs from each other. For the headlines I mainly used white and for sub headlines I have used the same as the label's colors. All the colors are in good contrast with the background-color_(This is a images that has a filtered layer)_ and are perfectly visible on every device. 
+  
+  In the headlines I am using `viewwidth` to scale down the headline whenever a user watches the application from a mobile phone.
+  
+  <img width="820" alt="Schermafbeelding 2021-03-30 om 16 29 59" src="https://user-images.githubusercontent.com/40355914/113006227-79776100-9175-11eb-9291-d67f167c87e6.png">
+
+#### These are all buttons!
+
+  For the all the buttons I have used the same styling only the buttons that needed to get more attention of the user are bigger. The `back` and `next` buttons have both the same layout. This is different in the core functionality. One is an `a` element and the other is an `input:submit` element. These two look way different when there is no styling, so by making them look indentical the user will have no issues or difficulties.
+  
+  <img width="231" alt="Schermafbeelding 2021-03-30 om 16 36 09" src="https://user-images.githubusercontent.com/40355914/113006921-10441d80-9176-11eb-86ce-2bba4efeb00b.png">
+
+  
+ #### Does it @support?
+ 
+ The application needs to work in every browser, so whenever this doesn't work you need to have a fall-back for this. You can look with `@support` if the CSS styling gets supported in different browsers whenever this is supported you run the code, but when a browser does not support this styling it needs to have a fall-back.
+ 
+ ``` 
+ fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: -webkit-center;
+}
+
+@supports (align-items: center) {
+  fieldset {
+    flex-grow: 1;
+    margin: 30px;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+```
+
+#### Making validation more reliable
+
+For the validation I only had the required field on the inputs. I wanted to give the user a bit more feedback on how the input fields need to be filled in. Next to the feedback on what the users did wrong I also wanted to give the users positive feedback for when they have correctly filled in the input fields. I started by getting all the needed input fields of the page.
+
+```
+const inputs = [...document.querySelector('form').querySelectorAll('input:not([type=hidden]):not([type=submit]), textArea' )]
+```
+
+With this piece of code I have every single input of the current page in a array. Now I can put a `forEach` around every input and see if they meet the requirements I want the fields to have: 
+
+- Empty string
+- Requires 3 characters
+- Match a pattern
+
+```
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => {
+            if (input.type === 'text' && !input.pattern.includes('[0-9]+')) {
+                if (input.value === '') {
+                }
+            }
+        })
+    }
+  ```
+  
+  When selected the input I needed to make validations for them, these will exist out of `valid` and `invalid`. The ones that are `invalid` will get a invalid class added to the label and it will also get een `.setAttribute()` with the error message in it. For the `valid` one its the other way around and the error message will be empty instead. these error message will be added to the `::after` of the label
+  
+  ```
+  label.classList.add('invalid')
+  label.setAttribute('error-message', 'Please enter a valid input')
+  ```
+  
+  ```
+  label.setAttribute('error-message', '')
+  label.classList.add('valid')
+  ```
+  
+  When a input field is not correctly filled in the `next` submit button will be disabled and when the `valid` class is added to the label the button will be enabled again.
+  
+  ```
+  // invalid case
+  document.querySelector('input[type=submit]').disabled = true
+  // valid case
+  document.querySelector('input[type=submit]').disabled = false
+  ```
+  
 </details>
 
 <details>
@@ -493,8 +594,7 @@ The user can just `TAB` to the previous survey and click on `Space` and will be 
 - [Mozilla Developer Network](https://developer.mozilla.org/en-US/) - I mostly used this site to obtain my sources
 - [localStorage from MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) - Helped me a lot with the client-side
 - [localStorage Feature Detection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) - Feature detection JS
-- [Progressive enhancement](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/) - Substantiation for progressive enhancement
-- [Progressive enhancement](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/) - Substantiation for progressive enhancement
+- [Select input](https://stackoverflow.com/questions/210761/how-to-auto-select-an-input-field-and-the-text-in-it-on-page-load/27326206) - Auto select input
 - [Progressive enhancement](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/) - Substantiation for progressive enhancement
 
 ## Credits
