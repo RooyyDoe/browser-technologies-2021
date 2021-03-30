@@ -4,30 +4,63 @@ const inputs = [...document.querySelector('form').querySelectorAll('input:not([t
 
 const uniqueCodeInput = document.getElementById('unique-code').value
 
-const getCurrentSurvey = (uniqueCode) => localStorage.getItem(uniqueCode)
-
-const progression = () => {
-    const currentSurvey = JSON.parse(getCurrentSurvey(uniqueCodeInput))
-    const pathname = form.id
-    const currentPageData = currentSurvey[pathname]
-
-    inputs.forEach(input => {
-        if (input.type === 'text') input.value = currentPageData[input.name]
-        else if (input.type === 'radio' && input.value === currentPageData[input.name]) {
-            input.checked = true
-        }
-        
-        input.addEventListener('blur', () => {
-            const {name, value} = input
-            
-            currentPageData[name] = value
-        
-            localStorage.setItem(uniqueCodeInput, JSON.stringify(currentSurvey)) 
-        })
-     })
+const storageAvailable = () => {
+    let storage;
+    try {
+        storage = window['localStorage'];
+        var x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
 }
 
+if (storageAvailable()) {
+
+    const getCurrentSurvey = (uniqueCode) => localStorage.getItem(uniqueCode)
+
+    const progression = () => {
+        const currentSurvey = JSON.parse(getCurrentSurvey(uniqueCodeInput))
+        const pathname = form.id
+        const currentPageData = currentSurvey[pathname]
+
+        inputs.forEach(input => {
+            if (input.type === 'text') input.value = currentPageData[input.name]
+            else if (input.type === 'radio' && input.value === currentPageData[input.name]) {
+                input.checked = true
+            }
+            
+            input.addEventListener('blur', () => {
+                const {name, value} = input
+                
+                currentPageData[name] = value
+            
+                localStorage.setItem(uniqueCodeInput, JSON.stringify(currentSurvey)) 
+            })
+        })
+    }
+
 progression()
+
+} else {
+    console.log('localStorage is not available (Turn it on and refresh!)')
+}
+
+
 
 const validateInputs = (inputs) => {
     inputs.forEach(input => {

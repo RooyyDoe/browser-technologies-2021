@@ -65,6 +65,6 @@ if (storageAvailable()) {
     localStorage.setItem(uniqueCode, JSON.stringify(newSurvey)) 
 
 } else (
-    console.log("Storage is not avaiable come back later!")
+    console.log('localStorage is not available (Turn it on and refresh!)')
 )
 
