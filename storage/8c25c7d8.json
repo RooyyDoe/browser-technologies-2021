@@ -1,0 +1,28 @@
+{
+  "code": "8c25c7d8",
+  "personal": {
+    "name": "",
+    "surname": "",
+    "age": "",
+    "gender": "",
+    "favoriteGame": ""
+  },
+  "game_personal": {
+    "favoritePlatform": "",
+    "averageGameTime": "",
+    "prefer": "",
+    "favoriteGameGenre": "",
+    "gamertag": ""
+  },
+  "open_questions": {
+    "favoriteGameOfAllTime": "",
+    "whatWouldYouDo": "",
+    "intoVideoGames": ""
+  },
+  "rate_game": {
+    "opinionAboutTheGame": "",
+    "rate": "",
+    "timeSpend": "",
+    "recommend": ""
+  }
+}
