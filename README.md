@@ -1,16 +1,16 @@
 # Browser Technologies
 
-For this assignment I will design an interactive application. I need to make sure that all users, with all browsers, can see, hear and / or feel at least the core functionality in every context. The purpose of this assignment is to learn how to make an online online interactive appliaction using `Progressive Enhancement` and `Feature Detection` so that the application will always work.
+For this assignment I will design an interactive application. I need to make sure that all users, with all browsers, can see, hear and/or feel at least the core functionality in every context. The purpose of this assignment is to learn how to make an online interactive application using `Progressive Enhancement` and `Feature Detection` so that the application will always work.
 
 ## Introduction
 
-### case
+### Case
 
-I want to be able to fill out a survey where the questions are aimed at gamers, with different answer options. If I don't finish the survey, I want to pick up where I left off later.
+I want to create a survey with questions aimed at gamers that uses different types of questions, such as open questions, rating questions and multiple choice questions. When a user doesn't finish a survey, the user should be able to come back and pick up where he left off.
 
-### Working of my application
+### The working of my application
 
-When a user opens the application, he / she is given the option to start a new survey or to continue where he / she left off. Each survey will have a unique code. This code allows the user to get back where he / she left off in the survey. Every time the user goes to the next section the data will be saved to a JSON file and can be extracted by making use of the unique code. The user needs to keep a good hold on the unique code otherways he / she will not be able to return where they left off.
+When a user opens the application, he/she is given the option to start a new survey or to continue where he/she left off. Each survey will have a unique code. This code allows the user to get back where he/she left off in the survey. Every time the user goes to the next section, the data will be saved to a JSON file and can be extracted by making use of the unique code. The user needs to keep a good hold of the unique code otherwise he/she will not be able to return where he/she left off.
 
 ## Final Product
 <img width="1552" alt="Schermafbeelding 2021-03-30 om 18 11 18" src="https://user-images.githubusercontent.com/40355914/113020911-5a7fcb80-9183-11eb-8705-630ce439ebf5.png">
@@ -19,7 +19,7 @@ When a user opens the application, he / she is given the option to start a new s
 
 - [Introduction](#introduction)
   - [Case](#case)
-  - [Working of my application](#working-of-my-application)
+  - [The working of my application](#the-working-of-my-application)
   - [Final Product](#final-product)
 - [Features](#features)
 - [Install](#install)
@@ -87,11 +87,11 @@ These are the wireflows for the survey, start and end screen. I have annotations
   
   **Enhancements**
   
-  1. **Progressbar:** In the flow of my application I want to create a progress bar that will change of value whenever a user goes to the next section of the survey. With this feature the users will know how much more of the survey they need to do, to finish it. When the users are done with one section they need to click on the `next` button and the progress bar will automatically update.
-  2. **Form validation:** My survey is going to exist mainly of inputs and form elements. This is why I want validations. I want to make form validations into my client-side javascript where it checks if the form elements are empty or not filled in and then shows a error message. The fields that are not filled in will be highlighted with a outline.
-  3. **Highlighting elements:** When a user selects a input field these will automatically be highlighted so the users knows where they are. This is also good for peope that use tabs to navigate through the application.
-  4. **Navigation between survey pages:** Users will be able to navigate back and forward between survey pages. On this way they can edit their answers if they need to.
-  5. **localStorage and write/read Json object:** I want to be able to get the writen data by the users from the localStorage client-side. Whenever Javascript is out or localStorage isn't working I want to have a back-up where the data will come out of a Json file. I will manage the data with a unique key that will be created on the server-side of my appllication. On this way I can give the users a unique key that they can fill in at the start of my application to get back where they left off in the survey.
+  1. **Progress bar:** In the flow of my application I want to create a progress bar that will change its value whenever a user goes to the next section of the survey. With this feature the user will know the percentual progress of the survey towards completion. When the user is done with one section he/she needs to click on the `next` button and the progress bar will automatically update.
+  2. **Form validation:** My survey is going to exist mainly of inputs and form elements. This is why I want validations. I want to make form validations into my client-side javascript where it checks if the form elements are empty or not filled in and then shows a error message. The fields that are not filled in will be highlighted with an outline.
+  3. **Highlighting elements:** When a user selects an input field, these will automatically be highlighted so the user knows where he/she is. This is also good for people that use tabs to navigate through the application.
+  4. **Navigation between survey pages:** Users will be able to navigate back and forward between survey pages. In this way they can edit their answers if they need to.
+  5. **localStorage and write/read Json object:** I want to be able to get the written data by the users from the localStorage client-side. Whenever Javascript is turned off or localStorage isn't working, I want to have a back-up where the data will come out of a Json file. I will manage the data with a unique code that will be created on the server-side of my application. In this way I can give the users a unique code that they can fill in at the start of my application to get back where they left off in the survey.
 
   ![301f5cf2-9b30-4892-ba55-8803f18d011d](https://user-images.githubusercontent.com/40355914/111615288-d6236500-87e0-11eb-97e9-75fd5916ef0a.jpeg)
 
@@ -115,8 +115,8 @@ These are the wireflows for the survey, start and end screen. I have annotations
   <img src="https://user-images.githubusercontent.com/40355914/111617905-0587a100-87e4-11eb-8d3c-ed0420753423.jpeg" width="650" height="auto" >
   
   **Enhancements**
-  1. **Unique code:** Every user that joins my survey will get a unique code that they will have to use when they don't finish the survey and come back later to fill it in further. This code is given whenever a user starts the survey. In the start screen users will be able to see a list of their unique codes and will be able to click on them and get back to where they left off. There will also be a input field where the user can put in one of the existing codes that he copied. 
-  2. **copy to clipboard:** User will be able to copy the unique code from the page without double clicking the code or using the mouse. When the user is navigated to the unique code page the only thing that needs to be done is to click the copy short code from the keyboard mac: `cmd + c` windows: `ctrl + c`.
+  1. **Unique code:** Every user that joins my survey will get a unique code that they will have to use when they don't finish the survey and come back later. This code is given whenever a user starts the survey. In the start screen users will be able to see a list of their unique codes and will be able to click on them and get back to where they left off. There will also be an input field where the user can put in one of the existing codes that he/she copied. 
+  2. **Copy to clipboard:** Users will be able to copy the unique code from the page without double clicking the code or using the mouse. When the user is navigated to the unique code page the only thing that needs to be done is to click the copy short code from the keyboard, which is for a mac device: `cmd + c` and for a windows device: `ctrl + c`.
   
 </details>
 
@@ -141,7 +141,7 @@ These are the wireflows for the survey, start and end screen. I have annotations
   
   <img src="https://user-images.githubusercontent.com/40355914/111488071-3232ae80-8739-11eb-96bd-54aeb6274a47.jpeg" width="250" height="auto" />
   
-  In de second survey screen the users get a couple more personal questions, but these questions will be mainly linked to gaming
+  In de second survey screen the users get a couple more personal questions, but these questions will be mainly linked to gaming.
   
   **Form questions:**
   - What is your favorite platform? (Input type Range)
@@ -157,7 +157,7 @@ These are the wireflows for the survey, start and end screen. I have annotations
   
   <img src="https://user-images.githubusercontent.com/40355914/111488128-41b1f780-8739-11eb-84e0-e69294e2a22f.jpeg" width="250" height="auto" />
   
-  This section is for the open questions. There will be three questions about gaming and I want the opinion of the users about these questions as detailed as they   can.
+  This section is for the open questions. There will be three questions about gaming and I want the opinion of the users about these questions as detailed as they can.
   
   **Form questions:**
   - What's your favorite game of all time? and why? (Textarea)
@@ -167,11 +167,11 @@ These are the wireflows for the survey, start and end screen. I have annotations
 </details>
 
 <details>
-  <summary>This is the interface for the Judge A game</summary>
+  <summary>This is the interface for the 'Judge A game'</summary>
   
   <img src="https://user-images.githubusercontent.com/40355914/111488162-4b3b5f80-8739-11eb-9996-f8bd5bbde1c8.jpeg" width="250" height="auto" />
   
-  The last part of my survey I will be asking a user to give there opinion about a game they can choose from a dropdown.
+  The last part of my survey I will be asking the user's opinion about a game of their choice with the use of a dropdown menu.
   
    **Form questions:**
   - Choose a game: (Dropdown list)
@@ -191,7 +191,7 @@ Google Chrome _(Works perfectly - Browser I designed in)_
 <details>
   <summary>Firefox</summary>
   
-  In firefox I had some issues with the `viewWidth` when using this on the `Headlines`, but I have adjust this to the perfect pixel ratio, so it would work on `firefox` and `chrome` 
+  In firefox I had some issues with the `viewWidth` when using this on the `Headlines`, but I have adjusted this to the perfect pixel ratio, so it would work on `firefox` and `chrome`. 
   
   ```
   legend > h1 {
@@ -204,10 +204,10 @@ Google Chrome _(Works perfectly - Browser I designed in)_
   margin: 0px auto;
   }
   ```
-  This browser also had some issues with aligning the `headlines` of every page to the center. This happend, because I had not use the right styling for this. I was using `align-self: center`, but I just needed to give it a `margin: 0px auto`. It is not that the `firefox` browser did not support this feature, because I have used this feature more than once. 
+  This browser also had some issues with aligning the `headlines` of every page to the center. This happened, because I had not used the right styling for this. I was using `align-self: center`, but I just needed to give it a `margin: 0px auto` and then it was fixed. 
   
-  I still have an issue with the `tabbing` through the survey pages. It does not recognize an `<a href="">` element when it is tabbed. On all the other elements there will be a blue outlining whenever the users tabs through, but not on the `a` element. I have not fixed this problem, becaus I did not know how to do that.
-  In the gif under here you see that I can tab on the `a` element but it will not put an outline around it.
+  I still have an issue with the `tabbing` through the survey pages. It does not recognize an `<a href="">` element when it is tabbed. On all the other elements there will be a blue outlining whenever the user tabs through, but not on the `a` element. I have not fixed this problem, becaus I did not know how to do that.
+  In the gif under here you see that I can tab on the `a` element, but it will not put an outline around it.
   
   ![firefox_bug](https://im6.ezgif.com/tmp/ezgif-6-53d60bc66c80.gif)
   
@@ -251,7 +251,7 @@ Google Chrome android _(Works perfectly, because I designed mobile first in the 
 <details>
   <summary>Functional layer</summary>
   
-  The functional layer is the core functionality of the application this needs to work on every device. Part of the core functionality is that the survey needs to be saved and can be continued later by the user. This part of the application mainly exists out of plain HTML and server-side functionalities.
+  The functional layer is the core functionality of the application which needs to work on every device. Part of the core functionality is that the survey needs to be saved and can be continued later by the user. This part of the application mainly consists of plain HTML and server-side functionalities.
   
   <img width="1552" alt="Schermafbeelding 2021-03-30 om 15 35 42" src="https://user-images.githubusercontent.com/40355914/112997690-a0319980-916d-11eb-9353-dfab8b7d3018.png">
   
@@ -259,7 +259,7 @@ Google Chrome android _(Works perfectly, because I designed mobile first in the 
   
   <img width="185" alt="Schermafbeelding 2021-03-30 om 15 51 42" src="https://user-images.githubusercontent.com/40355914/113000173-dcfe9000-916f-11eb-9d7d-35716f703fb9.png">
   
-  If they leave the survey without finishing it the `unique code` is the only way back to continue with the survey where they left off.
+  If they leave the survey without finishing it, the `unique code` is the only way back to continue with the survey where they left off.
   
   
 </details>
@@ -281,14 +281,14 @@ Google Chrome android _(Works perfectly, because I designed mobile first in the 
 
 #### These are all buttons!
 
-  For the all the buttons I have used the same styling only the buttons that needed to get more attention of the user are bigger. The `back` and `next` buttons have both the same layout. This is different in the core functionality. One is an `a` element and the other is an `input:submit` element. These two look way different when there is no styling, so by making them look indentical the user will have no issues or difficulties.
+  For all the buttons I have used the same styling and only the buttons that needed to get more attention of the user are bigger. The `back` and `next` buttons have both the same layout. This is different in the core functionality. One is an `a` element and the other is an `input:submit` element. These two look way different when there is no styling, so by making them look indentical the user will have no issues or difficulties.
   
   <img width="231" alt="Schermafbeelding 2021-03-30 om 16 36 09" src="https://user-images.githubusercontent.com/40355914/113006921-10441d80-9176-11eb-86ce-2bba4efeb00b.png">
 
   
  #### Does it @support?
  
- The application needs to work in every browser, so whenever this doesn't work you need to have a fall-back for this. You can look with `@support` if the CSS styling gets supported in different browsers whenever this is supported you run the code, but when a browser does not support this styling it needs to have a fall-back.
+ The application needs to work in every browser, so whenever this doesn't work you need to have a fall-back for this. You can look with `@support` if the CSS styling gets supported in different browsers. Whenever this is supported you run the code, but when a browser does not support this styling it needs to have a fall-back.
  
  ``` 
  fieldset {
@@ -313,13 +313,13 @@ Google Chrome android _(Works perfectly, because I designed mobile first in the 
 
 #### Making validation more reliable
 
-For the validation I only had the required field on the inputs. I wanted to give the user a bit more feedback on how the input fields need to be filled in. Next to the feedback on what the users did wrong I also wanted to give the users positive feedback for when they have correctly filled in the input fields. I started by getting all the needed input fields of the page.
+For the validation I only had the required field on the inputs. I wanted to give the user a bit more feedback on how the input fields needed to be filled in. Next to the feedback on what the users did wrong I also wanted to give the users positive feedback for when they have correctly filled in the input fields. I started by getting all the needed input fields of the page.
 
 ```
 const inputs = [...document.querySelector('form').querySelectorAll('input:not([type=hidden]):not([type=submit]), textArea' )]
 ```
 
-With this piece of code I have every single input of the current page in a array. Now I can put a `forEach` around every input and see if they meet the requirements I want the fields to have: 
+With this piece of code I have every single input of the current page in an array. Now I can put a `forEach` around every input and see if they meet the requirements I want the fields to have: 
 
 - Empty string
 - Requires 3 characters
@@ -336,7 +336,7 @@ With this piece of code I have every single input of the current page in a array
     }
   ```
   
-  When selected the input I needed to make validations for them, these will exist out of `valid` and `invalid`. The ones that are `invalid` will get a invalid class added to the label and it will also get een `.setAttribute()` with the error message in it. For the `valid` one its the other way around and the error message will be empty instead. these error message will be added to the `::after` of the label
+  When selected the input I needed to make validations for them, these will exist out of `valid` and `invalid`. The ones that are `invalid` will get a invalid class added to the label and it will also get a `.setAttribute()` with the error message in it. For the `valid` one its the other way around and the error message will be empty instead. These error messages will be added to the `::after` of the label.
   
   ```
   label.classList.add('invalid')
@@ -348,7 +348,7 @@ With this piece of code I have every single input of the current page in a array
   label.classList.add('valid')
   ```
   
-  When a input field is not correctly filled in the `next` submit button will be disabled and when the `valid` class is added to the label the button will be enabled again.
+  When a input field is not correctly filled in, the `next` submit button will be disabled and when the `valid` class is added to the label, the button will be enabled again.
   
   ```
   // invalid case
@@ -362,17 +362,17 @@ With this piece of code I have every single input of the current page in a array
 <details>
   <summary>Pleasurable layer</summary>
   
-  The pleasurable layer is the layer where we will add extra enhancements for the user to make it more pleasurable. The layer is a bit like the usable layer only not so focust on the look and feel, but more on what extra functionalities I can add to give the user a more pleasurable experience. This layer is also mostly commonly linked to the client-side javascript.
+  The pleasurable layer is the layer where we will add extra enhancements for the user to make it more pleasurable. The layer is a bit like the usable layer only not so focused on the look and feel, but more on what extra functionalities I can add to give the user a more pleasurable experience. This layer is also often linked to the client-side javascript.
   
   #### List with previous surveys
   
-  As a user you need to save the unique code u get at the beginning of the survey. When a user forgets this code or loses this they will never be able to return to the previous survey. I wanted make an enhancement for this so that the unique code will always be available when the user forgets to copy the code. 
+  As a user you need to save the unique code you get at the beginning of the survey. When a user forgets this code or loses it, they will never be able to return to the previous survey. I wanted to make an enhancement for this so that the unique code will always be available when the user forgets to copy the code. 
   
-  whenever a user comes back to the application and they want to continue with a previous survey there will be a list on the homepage with all the surveys that are available to resume.
+  Whenever a user comes back to the application and they want to continue with a previous survey, there will be a list on the homepage with all the surveys that are available to resume.
   
   <img width="349" alt="Schermafbeelding 2021-03-29 om 16 15 42" src="https://user-images.githubusercontent.com/40355914/113026772-b3526280-9189-11eb-809e-7f3aac06db7c.png">
   
-  the previous survey list works with `localStorage` and will not work without it. Whenever the user gets to the `get_code` page I will save a object to localStorage with in here the `unique code`.
+  The previous survey list works with `localStorage` and will not work without it. Whenever the user gets to the `get_code` page I will save an object to localStorage including the `unique code`.
   
   ```
     // getting uniqueCode from HTML
@@ -410,7 +410,7 @@ With this piece of code I have every single input of the current page in a array
     localStorage.setItem(uniqueCode, JSON.stringify(newSurvey)) 
   ```
   
-  We can call this object in the `start` page and write the data into a HTML element. In the next section I will explain more about the JSON object in localStorage. At first it was just a list of plain list `unique codes` where the users could click on and had no further information. This was not that good of a UX design, so I had to change it and give it a bit more information. I have implemented four different use cases:
+  We can call this object in the `start` page and write the data into an HTML element. In the next section I will explain more about the JSON object in localStorage. At first it was just a plain list of `unique codes`, where the users could click on and had no further information. This was not that good of a UX design, so I had to change it and give it a bit more information. I have implemented four different use cases:
   
   - User has just started the survey: The `previous survey` element will only show the `unique code` of the survey
   - User has only filled in the name: The `previous survey` element will show the `name` and `unique code` of the survey
@@ -422,13 +422,13 @@ With this piece of code I have every single input of the current page in a array
   
   #### Saving data on `blur`
   
-  On the server-side of this application it automatically saves the data to a `JSON` file and then write it back. I want to enhance this feature into saving the data whenever a user leaves the input field. When a user leaves the survey and had only filled in two fields of a survey page and is going to come back later both these fields will be filled in already. I am going to do this through `localStorage`
+  On the server-side of this application it automatically saves the data to a `JSON` file and then write it back. I want to enhance this feature into saving the data whenever a user leaves the input field. When a user leaves the survey and has only filled in two fields of a survey page and is going to come back later, both these fields will be filled in already. I am going to do this through `localStorage`.
   
   ![localStorage_in_working](https://im3.ezgif.com/tmp/ezgif-3-292568e84f87.gif)
   
   This is the function I am using for this enhancement. I am first parsing the data to JSON so that I can use it and after that I will link the current path to the JSON data and only get the data under the name that is equal to the `pathname` variable.
   
-  Then `forEach` input I am going to fill in the data from the `localStorage` and when the data change through user input _(blur event)_ I will write the data to localStorage, so that whenever the user leaves early and comes back the same inputs will be filled in already.
+  Then `forEach` input I am going to fill in the data from the `localStorage` and when the data change through user input _(blur event)_ I will write the data to localStorage, so that whenever the user leaves early and comes back, the same inputs will be filled in already.
   
   ```
       const progression = () => {
@@ -474,7 +474,7 @@ progression()
 <details>
   <summary>CSS support</summary>
 
-When I am doing CSS I am mainly focussing on `divs` and `classes`. This project I tried to focus on `ID's` and normal CSS attributes like: `input[type="text"]`. On this way I will not work with to many classes and the HTML code will also be cleaner and in the end the CSS code will be much less. 
+When I am doing CSS I am mainly focussing on `divs` and `classes`. This project I tried to focus on `ID's` and normal CSS attributes like: `input[type="text"]`. On this way I will not work with too many classes and the HTML code will also be cleaner and in the end the CSS code will be much less lengthy. 
 
 As CSS Support I have used the `@support` attribute to look if a browser supports the styling that you want to add. In this case it was on the `android default browser` where the text was not aligning to the center, but it stayed at the left side of the screen. When `align-items: center` is supported in browsers this will be the CSS code that will be send through.
 
@@ -502,7 +502,7 @@ fieldset {
 }
 ```
 
-This project I wanted to try to not use the `@media` attribute as much as I used to in other projects. I mainly worked with `width` and `height` and the variable `vw` for the headlines. Also used flex for the alignment of the form elements. `@media` is a attribute what you will use for support detection aswell. Whenever you open a browser on the mobile, tablet or computer the application needs to work. I mainly used it for fixing other browsers like `firefox` and `standard android browser` 
+This project I wanted to try to not use the `@media` attribute as much as I used it in other projects. I mainly worked with `width` and `height` and the variable `vw` for the headlines. Also used flex for the alignment of the form elements. 
 
 ```
 @media screen and (min-device-width: 1200px) and (max-device-width: 1820px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -516,17 +516,17 @@ This project I wanted to try to not use the `@media` attribute as much as I used
 }
 ```
 
-I had somme small issues with my header image and it did not stay right in the middle in the `firefox` browser, so I have just put it to the left a little bit. And the `form-section` was getting to big when you look at it on a big computer screen I wanted to have a small form and not a stretched one. Both of the changes could be removed and the CSS layer will still work perfectly. These are just slight adjustments to correct some styling parts.
+I had somme small issues with my header image and it did not stay centered in the `firefox` browser, so I have just put it to the left a little bit. And the `form-section` was getting to big when you look at it on a big computer screen. I wanted to have a small form and not a stretched one. Both of the changes could be removed and the CSS layer will still work perfectly. These are just slight adjustments to correct some styling parts.
 </details>
 
 <details>
   <summary>JS support</summary>
   
-  As for javascript I haven't had to much issues with finding feature detection support. I am mainly using javascript functionalities that are supported in the browsers I have tested.
+  As for javascript I haven't had too much issues with finding feature detection support. I am mainly using javascript functionalities that are supported in the browsers I have tested.
   
-  In my application some of the functionalities are making use of `localStorage`. Because of this I want to make sure I can check if `localStorage` works by the users and if so it will run the functionalities and when for example `javascript` or `localStorage` is off, it will run the code of the fall-back section. some functionalities can not function without `localStorage` so these functionalities will not be visible for the user without `localStorage`.
+  In my application some of the functionalities are making use of `localStorage`. Because of this I want to make sure I can check if `localStorage` works for the users and if so, it will run the functionalities and when for example `javascript` or `localStorage` is off, it will run the code of the fall-back section. Some functionalities can not function without `localStorage` so these functionalities will not be visible for the user without `localStorage`.
   
-  This piece of code checks if localStorage is available:
+  This is the code that checks if localStorage is available:
   
   ```
   const storageAvailable = () => {
@@ -555,7 +555,6 @@ I had somme small issues with my header image and it did not stay right in the m
 }
   ```
 
-Whenever you want to check if `localStorage` is available you can use this piece of code:
 
 ```
 if (storageAvailable()) {
@@ -567,7 +566,7 @@ if (storageAvailable()) {
 
 ### Fall-back explained
 
-I am not making use of this subject to much into my code next to the one for javascript, so I want to give another example that will explain it in more details. The reason I am not making use of this is that all the browsers that I test in work fine with the javascript code I use, but whenever I am going to expand to more browser this will maybe a good `feature detection` option:
+I am not making use of this subject too much into my code next to the one for javascript, so I want to give another example that will explain it in more details. The reason I am not making use of this is that all the browsers that I tested in, worked fine with the javascript code I used. However, when I am going to expand to more browsers this will maybe be a good `feature detection` option:
 
 ```
 function addEventListener() {
@@ -602,7 +601,7 @@ const validateInputs = (inputs) => {
 
 ```
 
-The `attachEvent` was back in the days mainly used for `internet explorer` and was a good fall-back for the `addEventListener`, but it is microsoft edge now and in there `addEventListener` is supported, so in my code it is not needed anymore. So whenever a browser does not support a functionality you want to have a fall-back that is supported in the paticular browser. By doing this ur application will work in all the browsers.
+The `attachEvent` was back in the days mainly used for `internet explorer` and was a good fall-back for the `addEventListener`, but it is microsoft edge now and in there `addEventListener` is supported, so in my code it is not needed anymore. So whenever a browser does not support a functionality you want to have a fall-back that is supported in the paticular browser. By doing this your application will work in all the browsers.
   
 </details>
 
@@ -611,13 +610,13 @@ The `attachEvent` was back in the days mainly used for `internet explorer` and w
 <details>
   <summary>Turn off images</summary>
   
-In my application I am not using that many images to begin with. I am using a couple `SVG` images that will be removed, but nothing will happen with the layout and every width/height will stay the same. All the images also have an empty `alt`, because of this there will be no image placeholder visible. The background image will just be replaced with the `background-color`
+In my application I am not using that many images to begin with. I am using a couple `SVG` images that will be removed, but nothing will happen with the layout and every width/height will stay the same. All the images also have an empty `alt`, because of this there will be no image placeholders visible. The background image will just be replaced with the `background-color`.
 
 <img width="1440" alt="Schermafbeelding 2021-03-30 om 10 59 39" src="https://user-images.githubusercontent.com/40355914/112962893-2686b500-9147-11eb-930c-5f3780899af1.png">
 
 <img width="1440" alt="Schermafbeelding 2021-03-30 om 10 59 19" src="https://user-images.githubusercontent.com/40355914/112962948-31d9e080-9147-11eb-90d1-8e93ea66aceb.png">
 
-Next to this I am making use of validation icon's that will show if the user has filled in the inputs correctly. As back-up I also make use of a underline message that tells the user if he does something wrong.
+Next to this I am making use of validation icons that will show if the user has filled in the inputs correctly. As back-up I also made use of an underline message that tells the user if he did something wrong.
 
 <img width="571" alt="Schermafbeelding 2021-03-30 om 11 05 59" src="https://user-images.githubusercontent.com/40355914/112963752-f68be180-9147-11eb-9c3e-8c8badb6170e.png">
 
@@ -641,7 +640,7 @@ I am making use of a custom font with `@font-face`
 
 ```
 
-When the custom font doesn't load in I am falling back on my back-up fonts(Times or Serif):
+When the custom font doesn't load in, I am falling back on my back-up fonts(Times or Serif):
 
 ```
 font-family: "BeaufortforLOL", Times, serif;
@@ -651,7 +650,7 @@ font-family: "BeaufortforLOL", Times, serif;
 <details>
   <summary>Color</summary>
   
-  These are the different color I use. It is hard to test with a `filter` attribute on an image. In the second one is the ratio a bit low and the first one is perfect.
+  These are the different colors I use. It is hard to test with a `filter` attribute on an image. In the second one, the ratio is a bit low and the first one is perfect.
   
   <img width="1440" alt="Schermafbeelding 2021-03-30 om 11 58 19" src="https://user-images.githubusercontent.com/40355914/112971431-7ff2e200-914f-11eb-9e5d-adc8ecb45d9f.png">
 
@@ -662,7 +661,7 @@ font-family: "BeaufortforLOL", Times, serif;
 <details>
   <summary> Muis / Trackpad </summary>
   
-When the user can only use the keyboard or when the trackpad/mouse is not working you can use `TAB` to navigate through the survey. When a user comes back to the application to finish a previous survey, they will have a easy way to select the previous survey and continue with it.
+When the user can only use the keyboard or when the trackpad/mouse is not working, you can use `TAB` to navigate through the survey. When a user comes back to the application to finish a previous survey, they will have an easy way to select the previous survey and continue with it.
   
 ![chrome-capture (2)](https://user-images.githubusercontent.com/40355914/112965824-eaa11f00-9149-11eb-8049-bd814a828f12.gif)
 
@@ -682,7 +681,7 @@ The user can just `TAB` to the previous survey and click on `Space` and will be 
 <details>
   <summary>Javascript</summary>
   
-  When I turn off Javascript my client-side functionalities will not work anymore. This will mean the `localStorage`, `previous survey list` and `custom validation` will not work anymore. It will fall back on the `required` attributes of HTML and it will use the server-side to load in the writen data from a user. When a user goes to the next survey page the data will be writen to an `database` file and when the users want to come back to the application they can use the `unique key` from the previous session to go back where they left off.
+  When I turn off Javascript my client-side functionalities will not work anymore. This will mean the `localStorage`, `previous survey list` and `custom validation` will not work anymore. It will fall back on the `required` attributes of HTML and it will use the server-side to load in the written data from a user. When a user goes to the next survey page the data will be written to a `database` file and when the user wants to come back to the application, he/she can use the `unique code` from the previous session to go back where he/she left off.
   
   ![Turn_Off_javascript](https://im2.ezgif.com/tmp/ezgif-2-3e8aa2fc4a35.gif)
   
@@ -691,7 +690,7 @@ The user can just `TAB` to the previous survey and click on `Space` and will be 
 <details>
   <summary>Cookies</summary>
   
-  I am making no use of `cookies` in my application, but `cookies` work together with `localStorage`. When you turn off `cookies`, `localStorage` will also be turned off and the client-side of my application will not work, but as back-up we have the server-side. So the core functionality will always work.
+  I am making no use of `cookies` in my application, but `cookies` work together with `localStorage`. When you turn off `cookies`, `localStorage` will also be turned off and the client-side of my application will not work, but as back-up we have the server-side. So the core functionalities will always work.
   
 </details>
 
@@ -745,23 +744,23 @@ The user can just `TAB` to the previous survey and click on `Space` and will be 
 
 ## Conclusion
 
-After this course, I finally have more understanding of the terms progressive enhancement and feature detection. These terms where very vague in the beginning and became more and more clear along the way of this course. I am also happy that I was able to turn a robust survey that consisted only of HTML into a fully working survey with all the enhancements included. In addition, my goal was to start working with localStorage and to investigate exactly how this works, so that I could use it in more projects after this one. I think I have done quite well this course and that I have created a super cool application in general. next to all the developer progression I have made I also overcame fears during this period that caused me to fail last year and I think that is already quite a victory.
+After this course, I finally have a better understanding of the terms progressive enhancement and feature detection. These terms where very vague in the beginning and became more and more clear during this course. I am also happy that I was able to turn a robust survey that consisted only of HTML into a fully working survey with all the enhancements included. In addition, my goal was to start working with localStorage and to investigate exactly how this works, so that I could use it in more projects after this one. I think I have performed quite well during this course and that I have created a super cool application in general. Next to all the developer progression I have made, I also overcame fears during this period that caused me to fail last year and I think that that is already quite a victory.
 
 ### My take on Progressive Enhancement
 
-With Progressive enhancement you make sure the core functionality works on every device, and then you add extra features when the browsers can handle these features. The core functionality mostly exists out of plain HTML and server-side functionalities. These functionalities will always work when for example Javascript is turned off. These functionalities can be _Account management, Validation, Saving data through an database or JSON, (add, update, remove), ect_
+With Progressive enhancement you make sure the core functionalities work on every device, and then you add extra features when the browsers can handle these features. The core functionalities mostly exist out of plain HTML and server-side functionalities. These functionalities will always work when for example Javascript is turned off. These functionalities can be _Account management, Validation, Saving data through a database or JSON, (add, update, remove), etc_
 
-The usable layer is an upgrade of the core functionality. This is done through styling and will make your application easier to use for your users. For example you can change the styling of your headlines/paragraphs, so that it is better readable for your users. Or style the buttons in the application and make the content fully responsive. In this layer you will make mostly use of CSS and a bit of Javascript.
+The usable layer is an upgrade of the core functionalities. This is done through styling and will make your application easier to use for your users. For example you can change the styling of your headlines/paragraphs, so that it is better readable for your users. Or style the buttons in the application and make the content fully responsive. In this layer you will make mostly use of CSS and a bit of Javascript.
 
-The pleasurable layer is the layer where we will add extra enhancements so that it will be more pleasurable for the users. The layer is a bit like the usable layer only the focus is not that much on the look and feel, but more on what extra functionalities that can be added to give the user a more pleasurable experience. This layer is also mostly commonly linked to the client-side javascript.
+The pleasurable layer is the layer where we will add extra enhancements so that it will be more pleasurable for the users. The layer is a bit like the usable layer only the focus is not that much on the look and feel, but more on what extra functionalities can be added to give the user a more pleasurable experience. This layer is also often linked to the client-side javascript.
 
 ### My take on Feature Detection
 
-The idea behind feature detection is that you can test to see if a feature is supported in the current browser, and when it is supported run the code to provide an acceptable experience both in browsers the one that supports the feature and the one that dont. If you are not able to do this, browsers that do not support the features you are using in your application will not display them properly and will just fail. When this happens you are creating a bad user experience.
+The idea behind feature detection is that you can test whether a feature is supported in the current browser. When it is supported, it will just run the code and when it is not supported, it will run the fall back code. If you don't use feature detection, browsers that do not support the features you are using in your application will not display them properly and will just fail. When this happens you are creating a bad user experience.
 
-In my code a good example is the `localStorage`. Whenever I make use of `localStorage` I will first check if it is available and when it is available it will automatically run the code, but when it does not support `localStorage` it will use the fall-back option of my application and that will be the server-side functionalities of my application. 
+In my code a good example is the `localStorage`. Whenever I make use of `localStorage` I will first check if it is available and when it is available it will automatically run the code. When it does not support `localStorage`, it will use the fall-back option of my application and that will be the server-side functionalities of my application. 
 
-With the enhancement(localStorage) I am making the user experience more pleasant so that the user does not have to remember the `unique code` and he can just click on one of the items in the `previous survey list`, but whenever `localStorage` is not available the user needs to copy or remember the code when they want to return to where they left off.
+With the enhancement(localStorage) I am making the user experience more pleasant so that the user does not have to remember the `unique code` and he can just click on one of the items in the `previous survey list`, but whenever `localStorage` is not available, the user needs to copy or remember the code when they want to return to where they left off.
 
 ## Extra
 
